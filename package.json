@@ -1,0 +1,23 @@
+{
+  "name": "voxeland",
+  "version": "0.1.0",
+  "description": "Land of all the voxels.",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/beefy ./index.js:bundle.js 9001",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "author": "Zachary Lumpkins",
+  "license": "ISC",
+  "devDependencies": {
+    "beefy": "^2.1.0",
+    "browserify": "^5.9.1",
+    "voxel-engine": "^0.20.1",
+    "voxel-land": "^0.2.1",
+    "voxel-player": "^0.1.0",
+    "voxel-snow": "^0.2.0"
+  }
+}
