@@ -1,10 +1,10 @@
 {
   "name": "voxeland",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Land of all the voxels.",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/beefy ./index.js:bundle.js 9001",
+    "start": "./node_modules/.bin/beefy ./src/index.js:bundle.js 9001",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -19,5 +19,8 @@
     "voxel-land": "^0.2.1",
     "voxel-player": "^0.1.0",
     "voxel-snow": "^0.2.0"
+  },
+  "dependencies": {
+    "hapi": "^6.4.0"
   }
 }
