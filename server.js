@@ -1,6 +1,6 @@
 var Hapi = require('hapi');
 var Path = require('path');
-var server = new Hapi.Server(9001);
+var server = new Hapi.Server(process.env.PORT || 9001);		// port dynamically assigned by Heroku
 
 server.route({
 	method: 'GET',
