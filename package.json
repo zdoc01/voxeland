@@ -4,7 +4,6 @@
   "description": "Land of all the voxels.",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/beefy ./src/index.js:bundle.js 9001",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
