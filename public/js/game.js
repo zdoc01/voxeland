@@ -1,27 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var createGame = require('voxel-engine');
-var createLand = require('voxel-land');
-
-var game = createGame({
-	texturePath: 'textures/'
-	// generateChunks: false
-});
-game.appendTo('#container');
-
-// var land = createLand(game);
-// land.enable();
-
-var createPlayer = require('voxel-player')(game);
-var player = createPlayer('textures/substack.png');
-player.possess();	//set the player as the active camera view
-player.position.set(0, 100, 0);
-
-window.addEventListener('keydown', function (ev) {
-	if (ev.keyCode === 'R'.charCodeAt(0)) {
-	    player.toggle();	// switch between 1st and 3rd person view
-	}
-});
-},{"voxel-engine":2,"voxel-land":43,"voxel-player":61}],2:[function(require,module,exports){
 (function (process){
 var voxel = require('voxel')
 var voxelMesh = require('voxel-mesh')
@@ -764,7 +741,7 @@ Game.prototype.destroy = function() {
 }
 
 }).call(this,require('_process'))
-},{"./lib/detector":3,"./lib/stats":4,"_process":70,"aabb-3d":5,"collide-3d-tilemap":6,"events":66,"gl-matrix":7,"inherits":8,"interact":9,"kb-controls":18,"path":69,"pin-it":23,"raf":24,"spatial-events":25,"three":27,"tic":28,"voxel":38,"voxel-control":29,"voxel-mesh":30,"voxel-physical":31,"voxel-raycast":32,"voxel-region-change":33,"voxel-texture":34,"voxel-view":36}],3:[function(require,module,exports){
+},{"./lib/detector":2,"./lib/stats":3,"_process":61,"aabb-3d":4,"collide-3d-tilemap":5,"events":57,"gl-matrix":6,"inherits":7,"interact":8,"kb-controls":17,"path":60,"pin-it":22,"raf":23,"spatial-events":24,"three":26,"tic":27,"voxel":37,"voxel-control":28,"voxel-mesh":29,"voxel-physical":30,"voxel-raycast":31,"voxel-region-change":32,"voxel-texture":33,"voxel-view":35}],2:[function(require,module,exports){
 /**
  * @author alteredq / http://alteredqualia.com/
  * @author mr.doob / http://mrdoob.com/
@@ -825,7 +802,7 @@ module.exports = function() {
   };
 }
 
-},{}],4:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 /**
  * @author mrdoob / http://mrdoob.com/
  */
@@ -971,7 +948,7 @@ var Stats = function () {
 };
 
 module.exports = Stats
-},{}],5:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 module.exports = AABB
 
 var vec3 = require('gl-matrix').vec3
@@ -1070,7 +1047,7 @@ proto.union = function(aabb) {
   return new AABB([base_x, base_y, base_z], [max_x - base_x, max_y - base_y, max_z - base_z])
 }
 
-},{"gl-matrix":7}],6:[function(require,module,exports){
+},{"gl-matrix":6}],5:[function(require,module,exports){
 module.exports = function(field, tilesize, dimensions, offset) {
   dimensions = dimensions || [ 
     Math.sqrt(field.length) >> 0
@@ -1159,7 +1136,7 @@ module.exports = function(field, tilesize, dimensions, offset) {
   }  
 }
 
-},{}],7:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 /**
  * @fileoverview gl-matrix - High performance matrix and vector operations
  * @author Brandon Jones
@@ -4232,7 +4209,7 @@ if(typeof(exports) !== 'undefined') {
   })(shim.exports);
 })();
 
-},{}],8:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 module.exports = inherits
 
 function inherits (c, p, proto) {
@@ -4263,7 +4240,7 @@ function inherits (c, p, proto) {
 //inherits(Child, Parent)
 //new Child
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 var lock = require('pointer-lock')
   , drag = require('drag-stream')
   , full = require('fullscreen')
@@ -4370,7 +4347,7 @@ function usedrag(el) {
   return ee
 }
 
-},{"drag-stream":10,"events":66,"fullscreen":16,"pointer-lock":17,"stream":83}],10:[function(require,module,exports){
+},{"drag-stream":9,"events":57,"fullscreen":15,"pointer-lock":16,"stream":74}],9:[function(require,module,exports){
 module.exports = dragstream
 
 var Stream = require('stream')
@@ -4438,10 +4415,10 @@ function dragstream(el) {
   }
 }
 
-},{"domnode-dom":11,"stream":83,"through":15}],11:[function(require,module,exports){
+},{"domnode-dom":10,"stream":74,"through":14}],10:[function(require,module,exports){
 module.exports = require('./lib/index')
 
-},{"./lib/index":12}],12:[function(require,module,exports){
+},{"./lib/index":11}],11:[function(require,module,exports){
 var WriteStream = require('./writable')
   , ReadStream = require('./readable')
   , DOMStream = {}
@@ -4479,7 +4456,7 @@ DOMStream.createEventStream = function(el, type, preventDefault) {
 module.exports = DOMStream
 
 
-},{"./readable":13,"./writable":14}],13:[function(require,module,exports){
+},{"./readable":12,"./writable":13}],12:[function(require,module,exports){
 module.exports = DOMStream
 
 var Stream = require('stream').Stream
@@ -4590,7 +4567,7 @@ function valueFromElement(el) {
   return el.value
 }
 
-},{"stream":83}],14:[function(require,module,exports){
+},{"stream":74}],13:[function(require,module,exports){
 module.exports = DOMStream
 
 var Stream = require('stream').Stream
@@ -4672,7 +4649,7 @@ proto.constructTextPlain = function(data) {
   return [textNode]
 }
 
-},{"stream":83}],15:[function(require,module,exports){
+},{"stream":74}],14:[function(require,module,exports){
 (function (process){
 var Stream = require('stream')
 
@@ -4774,7 +4751,7 @@ function through (write, end) {
 
 
 }).call(this,require('_process'))
-},{"_process":70,"stream":83}],16:[function(require,module,exports){
+},{"_process":61,"stream":74}],15:[function(require,module,exports){
 module.exports = fullscreen
 fullscreen.available = available
 
@@ -4865,7 +4842,7 @@ function shim(el) {
     el.oRequestFullScreen)
 }
 
-},{"events":66}],17:[function(require,module,exports){
+},{"events":57}],16:[function(require,module,exports){
 module.exports = pointer
 
 pointer.available = available
@@ -5029,7 +5006,7 @@ function shim(el) {
     null
 }
 
-},{"events":66,"stream":83}],18:[function(require,module,exports){
+},{"events":57,"stream":74}],17:[function(require,module,exports){
 var ever = require('ever')
   , vkey = require('vkey')
   , max = Math.max
@@ -5126,7 +5103,7 @@ module.exports = function(el, bindings, state) {
   }
 }
 
-},{"ever":19,"vkey":22}],19:[function(require,module,exports){
+},{"ever":18,"vkey":21}],18:[function(require,module,exports){
 var EventEmitter = require('events').EventEmitter;
 
 module.exports = function (elem) {
@@ -5238,7 +5215,7 @@ Ever.typeOf = (function () {
     };
 })();;
 
-},{"./init.json":20,"./types.json":21,"events":66}],20:[function(require,module,exports){
+},{"./init.json":19,"./types.json":20,"events":57}],19:[function(require,module,exports){
 module.exports={
   "initEvent" : [
     "type",
@@ -5281,7 +5258,7 @@ module.exports={
   ]
 }
 
-},{}],21:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 module.exports={
   "MouseEvent" : [
     "click",
@@ -5326,7 +5303,7 @@ module.exports={
   ]
 }
 
-},{}],22:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 var ua = typeof window !== 'undefined' ? window.navigator.userAgent : ''
   , isOSX = /OS X/.test(ua)
   , isOpera = /Opera/.test(ua)
@@ -5464,7 +5441,7 @@ for(i = 112; i < 136; ++i) {
   output[i] = 'F'+(i-111)
 }
 
-},{}],23:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 module.exports = pin
 
 var pins = {}
@@ -5546,7 +5523,7 @@ function pin(item, every, obj, name) {
   }
 }
 
-},{}],24:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = raf
 
 var EE = require('events').EventEmitter
@@ -5593,7 +5570,7 @@ function raf(el) {
 raf.polyfill = _raf
 raf.now = function() { return Date.now() }
 
-},{"events":66}],25:[function(require,module,exports){
+},{"events":57}],24:[function(require,module,exports){
 module.exports = SpatialEventEmitter
 
 var slice = [].slice
@@ -5725,7 +5702,7 @@ function finite(bbox) {
          isFinite(bbox.z1())
 }
 
-},{"./tree":26,"aabb-3d":5}],26:[function(require,module,exports){
+},{"./tree":25,"aabb-3d":4}],25:[function(require,module,exports){
 module.exports = Tree
 
 var aabb = require('aabb-3d')
@@ -5851,7 +5828,7 @@ proto.send = function(event, bbox, args) {
   }
 }
 
-},{"aabb-3d":5}],27:[function(require,module,exports){
+},{"aabb-3d":4}],26:[function(require,module,exports){
 (function (process){
 
 var window = window || {};
@@ -41885,7 +41862,7 @@ if (typeof exports !== 'undefined') {
 }
 
 }).call(this,require('_process'))
-},{"_process":70}],28:[function(require,module,exports){
+},{"_process":61}],27:[function(require,module,exports){
 /*
  * tic
  * https://github.com/shama/tic
@@ -41932,7 +41909,7 @@ Tic.prototype.tick = function(dt) {
   });
 };
 
-},{}],29:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 module.exports = control
 
 var Stream = require('stream').Stream
@@ -42215,7 +42192,7 @@ function clamp(value, to) {
   return isFinite(to) ? max(min(value, to), -to) : value
 }
 
-},{"stream":83}],30:[function(require,module,exports){
+},{"stream":74}],29:[function(require,module,exports){
 var THREE = require('three')
 
 module.exports = function(data, mesher, scaleFactor, three) {
@@ -42385,7 +42362,7 @@ Mesh.prototype.faceVertexUv = function(i) {
 }
 ;
 
-},{"three":27}],31:[function(require,module,exports){
+},{"three":26}],30:[function(require,module,exports){
 module.exports = physical
 
 var aabb = require('aabb-3d')
@@ -42604,7 +42581,7 @@ proto.atRestZ = function() {
   return this.resting.z
 }
 
-},{"aabb-3d":5,"three":27}],32:[function(require,module,exports){
+},{"aabb-3d":4,"three":26}],31:[function(require,module,exports){
 "use strict"
 
 function traceRay_impl(
@@ -42826,7 +42803,7 @@ function traceRay(voxels, origin, direction, max_d, hit_pos, hit_norm, EPSILON) 
 }
 
 module.exports = traceRay
-},{}],33:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 module.exports = coordinates
 
 var aabb = require('aabb-3d')
@@ -42854,7 +42831,7 @@ function coordinates(spatial, box, regionWidth) {
  
   return emitter
 }
-},{"aabb-3d":5,"events":66}],34:[function(require,module,exports){
+},{"aabb-3d":4,"events":57}],33:[function(require,module,exports){
 var tic = require('tic')();
 var createAtlas = require('atlaspack');
 
@@ -43241,7 +43218,7 @@ function memoize(func) {
   return memoized;
 }
 
-},{"atlaspack":35,"tic":28}],35:[function(require,module,exports){
+},{"atlaspack":34,"tic":27}],34:[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.atlaspack=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*
@@ -43503,7 +43480,7 @@ Atlas.prototype._debug = function() {
 });;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],36:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 (function (process){
 var THREE, temporaryPosition, temporaryVector
 
@@ -43593,7 +43570,7 @@ View.prototype.appendTo = function(element) {
   this.resizeWindow(this.width,this.height)
 }
 }).call(this,require('_process'))
-},{"_process":70}],37:[function(require,module,exports){
+},{"_process":61}],36:[function(require,module,exports){
 var events = require('events')
 var inherits = require('inherits')
 
@@ -43730,7 +43707,7 @@ Chunker.prototype.voxelVector = function(pos) {
   return [vx, vy, vz]
 };
 
-},{"events":66,"inherits":8}],38:[function(require,module,exports){
+},{"events":57,"inherits":7}],37:[function(require,module,exports){
 var chunker = require('./chunker')
 
 module.exports = function(opts) {
@@ -43826,7 +43803,7 @@ module.exports.generateExamples = function() {
 }
 
 
-},{"./chunker":37,"./meshers/culled":39,"./meshers/greedy":40,"./meshers/monotone":41,"./meshers/stupid":42}],39:[function(require,module,exports){
+},{"./chunker":36,"./meshers/culled":38,"./meshers/greedy":39,"./meshers/monotone":40,"./meshers/stupid":41}],38:[function(require,module,exports){
 //Naive meshing (with face culling)
 function CulledMesh(volume, dims) {
   //Precalculate direction vectors for convenience
@@ -43878,7 +43855,7 @@ if(exports) {
   exports.mesher = CulledMesh;
 }
 
-},{}],40:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 var GreedyMesh = (function() {
 //Cache buffer internally
 var mask = new Int32Array(4096);
@@ -43995,7 +43972,7 @@ if(exports) {
   exports.mesher = GreedyMesh;
 }
 
-},{}],41:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 "use strict";
 
 var MonotoneMesh = (function(){
@@ -44248,7 +44225,7 @@ if(exports) {
   exports.mesher = MonotoneMesh;
 }
 
-},{}],42:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 //The stupidest possible way to generate a Minecraft mesh (I think)
 function StupidMesh(volume, dims) {
   var vertices = [], faces = [], x = [0,0,0], n = 0;
@@ -44284,2656 +44261,7 @@ if(exports) {
   exports.mesher = StupidMesh;
 }
 
-},{}],43:[function(require,module,exports){
-(function (process){
-
-var webworkify = require('webworkify');
-var unworkify = require('unworkify');
-var ndarray = require('ndarray');
-
-module.exports = function(game, opts) {
-  return new Land(game, opts);
-};
-
-module.exports.pluginInfo = {
-  loadAfter: ['voxel-registry', 'voxel-recipes', 'voxel-food', 'voxel-mesher'],
-  //clientOnly: true // TODO?
-};
-
-function Land(game, opts) {
-  this.game = game;
-
-  if (!game.plugins || !game.plugins.get('voxel-registry')) throw new Error('voxel-land requires voxel-registry');
-  this.registry = game.plugins.get('voxel-registry');
-
-  opts = opts || {};
-  opts.seed = opts.seed || 'foo';
-  opts.materials = opts.materials || undefined;
-
-  opts.crustLower = opts.crustLower === undefined ? 0 : opts.crustLower;
-  opts.crustUpper = opts.crustUpper === undefined ? 2 : opts.crustUpper;
-  opts.hillScale = opts.hillScale || 20;
-  opts.roughnessScale = opts.roughnessScale || 200;
-  opts.populateTrees = (opts.populateTrees !== undefined) ? opts.populateTrees : true;
-  opts.treesScale = opts.treesScale || 200;
-  opts.treesMaxDensity = (opts.treesMaxDensity !== undefined) ? opts.treesMaxDensity : 5;
-  opts.chunkSize = game.chunkSize || 32;
-  opts.chunkPad = game.chunkPad|0;
-
-  opts.registerBlocks = opts.registerBlocks === undefined ? true : opts.registerBlocks;
-  opts.registerItems = opts.registerItems === undefined ? true : opts.registerItems;
-  opts.registerRecipes = opts.registerRecipes === undefined ? true : opts.registerRecipes;
-
-  // can't clone types, so need to send size instead
-  if (game.arrayType === Uint8Array || game.arrayType === Uint8ClampedArray)
-    opts.arrayElementSize = 1;
-  else if (game.arrayType === Uint16Array)
-    opts.arrayElementSize = 2;
-  else if (game.arrayType === Uint32Array)
-    opts.arrayElementSize = 4;
-  else
-    throw new Error('voxel-land unknown game.arrayType: ' + game.arrayType)
-
-  this.opts = JSON.parse(JSON.stringify(opts));
-
-  this.enable();
-}
-
-Land.prototype.enable = function() {
-  this.registerBlocks();
-  if (process.browser) {
-    this.worker = webworkify(require('./worker.js'));
-  } else {
-    // fallback to unthreaded 
-    // TODO: switch to https://github.com/audreyt/node-webworker-threads
-    this.worker = unworkify(require('./worker.js'));
-  }
-  this.bindEvents();
-};
-
-Land.prototype.disable = function() {
-  this.unbindEvents();
-  // TODO: unregister blocks?
-};
-
-Land.prototype.registerBlocks = function()  {
-  if (this.opts.materials) return; // only register blocks once TODO: remove after adding unregister
-
-  if (this.opts.registerItems) {
-    this.registry.registerItem('coal', {itemTexture: 'i/coal', fuelBurnTime: 1})
-  }
-
-  if (this.opts.registerBlocks) {
-    this.registry.registerBlock('grass', {texture: ['grass_top', 'dirt', 'grass_side'], hardness:1.0, itemDrop: 'dirt', effectiveTool: 'spade'});
-    this.registry.registerBlock('dirt', {texture: 'dirt', hardness:0.75, effectiveTool: 'spade'});
-    this.registry.registerBlock('stone', {displayName: 'Smooth Stone', texture: 'stone', hardness:10.0, itemDrop: 'cobblestone', effectiveTool: 'pickaxe', requiredTool: 'pickaxe'});
-    this.registry.registerBlock('logOak', {displayName: 'Oak Wood', texture: ['log_oak_top', 'log_oak_top', 'log_oak'], hardness:2.0, effectiveTool: 'axe', creativeTab: 'plants'});
-    this.registry.registerBlock('cobblestone', {texture: 'cobblestone', hardness:10.0, effectiveTool: 'pickaxe', requiredTool: 'pickaxe'});
-    this.registry.registerBlock('oreCoal', {displayName: 'Coal Ore', texture: 'coal_ore', itemDrop: 'coal', hardness:15.0, requiredTool: 'pickaxe'});
-    this.registry.registerBlock('oreIron', {displayName: 'Iron Ore', texture: 'iron_ore', hardness:15.0, requiredTool: 'pickaxe'});
-    this.registry.registerBlock('brick', {texture: 'brick'}); // some of the these blocks don't really belong here..do they?
-    this.registry.registerBlock('obsidian', {texture: 'obsidian', hardness: 128, requiredTool: 'pickaxe'});
-    this.registry.registerBlock('leavesOak', {displayName: 'Oak Leaves', texture: 'leaves_oak', transparent: true, hardness: 0.1, creativeTab: 'plants',
-      // if voxel-food apple is enabled, drop it when breaking laves (oak apples)
-      itemDrop: this.registry.getItemProps('apple') ? 'apple' : null});
-
-    this.registry.registerBlock('logBirch', {texture: ['log_birch_top', 'log_birch_top', 'log_birch'], hardness:2.0,
-      displayName: 'Birch Wood', effectiveTool: 'axe', creativeTab: 'plants'}); // TODO: generate
-  }
-
-  if (this.opts.registerRecipes) {
-    var recipes = this.game.plugins.get('voxel-recipes');
-    if (recipes) { // TODO: should these be properties on voxel-registry, instead?
-      recipes.thesaurus.registerName('wood.log', 'logOak');
-      recipes.thesaurus.registerName('wood.log', 'logBirch');
-      recipes.thesaurus.registerName('tree.leaves', 'leavesOak');
-    }
-  }
-
-  // materials for passing to worker
-
-  if (!this.opts.materials) {
-    this.opts.materials = {};
-    for (var blockIndex = 1; blockIndex < this.registry.blockProps.length; blockIndex += 1) {
-      var name = this.registry.getBlockName(blockIndex);
-      var packedIndex = this.registry.getBlockIndex(name);
-      this.opts.materials[name] = packedIndex;
-    }
-  }
-};
-
-Land.prototype.bindEvents = function() {
-  var self = this;
-
-  self.worker.postMessage({cmd: 'configure', opts:self.opts});
-
-  this.game.voxels.on('missingChunk', this.missingChunk = function(pos) {
-    self.worker.postMessage({cmd: 'generateChunk', pos:pos})
-  });
-
-  self.worker.addEventListener('message', function(ev) {
-    if (ev.data.cmd === 'chunkGenerated') {
-      var voxels = new self.game.arrayType(ev.data.voxelBuffer);
-      var chunk = ndarray(voxels, [self.opts.chunkSize+self.opts.chunkPad, self.opts.chunkSize+self.opts.chunkPad, self.opts.chunkSize+self.opts.chunkPad]);
-
-      chunk.position = ev.data.position;
-
-      self.game.showChunk(chunk);
-    } else if (ev.data.cmd === 'decorate') {
-      var changes = ev.data.changes;
-      for (var i = 0; i < changes.length; ++i) {
-        var pos = changes[i][0];
-        var value = changes[i][1];
-
-        self.game.setBlock(pos, value); // TODO: faster mass edit?
-        // TODO: what if pos is out of loaded chunk range? doesn't automatically load chunk; change will be lost
-      }
-    }
-  });
-};
-
-Land.prototype.unbindEvents = function() {
-  this.game.voxels.removeListener('missingChunk', this.missingChunk);
-};
-
-}).call(this,require('_process'))
-},{"./worker.js":60,"_process":70,"ndarray":53,"unworkify":56,"webworkify":59}],44:[function(require,module,exports){
-(function (root, factory) {
-  if (typeof exports === 'object') {
-      module.exports = factory();
-  } else if (typeof define === 'function' && define.amd) {
-      define(factory);
-  } else {
-      root.Alea = factory();
-  }
-}(this, function () {
-
-  'use strict';
-
-  // From http://baagoe.com/en/RandomMusings/javascript/
-
-  // importState to sync generator states
-  Alea.importState = function(i){
-    var random = new Alea();
-    random.importState(i);
-    return random;
-  };
-
-  return Alea;
-
-  function Alea() {
-    return (function(args) {
-      // Johannes Baagøe <baagoe@baagoe.com>, 2010
-      var s0 = 0;
-      var s1 = 0;
-      var s2 = 0;
-      var c = 1;
-
-      if (args.length == 0) {
-        args = [+new Date];
-      }
-      var mash = Mash();
-      s0 = mash(' ');
-      s1 = mash(' ');
-      s2 = mash(' ');
-
-      for (var i = 0; i < args.length; i++) {
-        s0 -= mash(args[i]);
-        if (s0 < 0) {
-          s0 += 1;
-        }
-        s1 -= mash(args[i]);
-        if (s1 < 0) {
-          s1 += 1;
-        }
-        s2 -= mash(args[i]);
-        if (s2 < 0) {
-          s2 += 1;
-        }
-      }
-      mash = null;
-
-      var random = function() {
-        var t = 2091639 * s0 + c * 2.3283064365386963e-10; // 2^-32
-        s0 = s1;
-        s1 = s2;
-        return s2 = t - (c = t | 0);
-      };
-      random.uint32 = function() {
-        return random() * 0x100000000; // 2^32
-      };
-      random.fract53 = function() {
-        return random() + 
-          (random() * 0x200000 | 0) * 1.1102230246251565e-16; // 2^-53
-      };
-      random.version = 'Alea 0.9';
-      random.args = args;
-
-      // my own additions to sync state between two generators
-      random.exportState = function(){
-        return [s0, s1, s2, c];
-      };
-      random.importState = function(i){
-        s0 = +i[0] || 0;
-        s1 = +i[1] || 0;
-        s2 = +i[2] || 0;
-        c = +i[3] || 0;
-      };
- 
-      return random;
-
-    } (Array.prototype.slice.call(arguments)));
-  }
-
-  function Mash() {
-    var n = 0xefc8249d;
-
-    var mash = function(data) {
-      data = data.toString();
-      for (var i = 0; i < data.length; i++) {
-        n += data.charCodeAt(i);
-        var h = 0.02519603282416938 * n;
-        n = h >>> 0;
-        h -= n;
-        h *= n;
-        n = h >>> 0;
-        h -= n;
-        n += h * 0x100000000; // 2^32
-      }
-      return (n >>> 0) * 2.3283064365386963e-10; // 2^-32
-    };
-
-    mash.version = 'Mash 0.9';
-    return mash;
-  }
-}));
-
-},{}],45:[function(require,module,exports){
-arguments[4][19][0].apply(exports,arguments)
-},{"./init.json":46,"./types.json":47,"events":66}],46:[function(require,module,exports){
-module.exports=require(20)
-},{}],47:[function(require,module,exports){
-module.exports=require(21)
-},{}],48:[function(require,module,exports){
-"use strict"
-
-var compile = require("cwise-compiler")
-
-var EmptyProc = {
-  body: "",
-  args: [],
-  thisVars: [],
-  localVars: []
-}
-
-function fixup(x) {
-  if(!x) {
-    return EmptyProc
-  }
-  for(var i=0; i<x.args.length; ++i) {
-    var a = x.args[i]
-    if(i === 0) {
-      x.args[i] = {name: a, lvalue:true, rvalue: !!x.rvalue, count:x.count||1 }
-    } else {
-      x.args[i] = {name: a, lvalue:false, rvalue:true, count: 1}
-    }
-  }
-  if(!x.thisVars) {
-    x.thisVars = []
-  }
-  if(!x.localVars) {
-    x.localVars = []
-  }
-  return x
-}
-
-function pcompile(user_args) {
-  return compile({
-    args:     user_args.args,
-    pre:      fixup(user_args.pre),
-    body:     fixup(user_args.body),
-    post:     fixup(user_args.proc),
-    funcName: user_args.funcName
-  })
-}
-
-function makeOp(user_args) {
-  var args = []
-  for(var i=0; i<user_args.args.length; ++i) {
-    args.push("a"+i)
-  }
-  var wrapper = new Function("P", [
-    "return function ", user_args.funcName, "_ndarrayops(", args.join(","), ") {P(", args.join(","), ");return a0}"
-  ].join(""))
-  return wrapper(pcompile(user_args))
-}
-
-var assign_ops = {
-  add:  "+",
-  sub:  "-",
-  mul:  "*",
-  div:  "/",
-  mod:  "%",
-  band: "&",
-  bor:  "|",
-  bxor: "^",
-  lshift: "<<",
-  rshift: ">>",
-  rrshift: ">>>"
-}
-;(function(){
-  for(var id in assign_ops) {
-    var op = assign_ops[id]
-    exports[id] = makeOp({
-      args: ["array","array","array"],
-      body: {args:["a","b","c"],
-             body: "a=b"+op+"c"},
-      funcName: id
-    })
-    exports[id+"eq"] = makeOp({
-      args: ["array","array"],
-      body: {args:["a","b"],
-             body:"a"+op+"=b"},
-      rvalue: true,
-      funcName: id+"eq"
-    })
-    exports[id+"s"] = makeOp({
-      args: ["array", "array", "scalar"],
-      body: {args:["a","b","s"],
-             body:"a=b"+op+"s"},
-      funcName: id+"s"
-    })
-    exports[id+"seq"] = makeOp({
-      args: ["array","scalar"],
-      body: {args:["a","s"],
-             body:"a"+op+"=s"},
-      rvalue: true,
-      funcName: id+"seq"
-    })
-  }
-})();
-
-var unary_ops = {
-  not: "!",
-  bnot: "~",
-  neg: "-",
-  recip: "1.0/"
-}
-;(function(){
-  for(var id in unary_ops) {
-    var op = unary_ops[id]
-    exports[id] = makeOp({
-      args: ["array", "array"],
-      body: {args:["a","b"],
-             body:"a="+op+"b"},
-      funcName: id
-    })
-    exports[id+"eq"] = makeOp({
-      args: ["array"],
-      body: {args:["a"],
-             body:"a="+op+"a"},
-      rvalue: true,
-      count: 2,
-      funcName: id+"eq"
-    })
-  }
-})();
-
-var binary_ops = {
-  and: "&&",
-  or: "||",
-  eq: "===",
-  neq: "!==",
-  lt: "<",
-  gt: ">",
-  leq: "<=",
-  geq: ">="
-}
-;(function() {
-  for(var id in binary_ops) {
-    var op = binary_ops[id]
-    exports[id] = makeOp({
-      args: ["array","array","array"],
-      body: {args:["a", "b", "c"],
-             body:"a=b"+op+"c"},
-      funcName: id
-    })
-    exports[id+"s"] = makeOp({
-      args: ["array","array","scalar"],
-      body: {args:["a", "b", "s"],
-             body:"a=b"+op+"s"},
-      funcName: id+"s"
-    })
-    exports[id+"eq"] = makeOp({
-      args: ["array", "array"],
-      body: {args:["a", "b"],
-             body:"a=a"+op+"b"},
-      rvalue:true,
-      count:2,
-      funcName: id+"eq"
-    })
-    exports[id+"seq"] = makeOp({
-      args: ["array", "scalar"],
-      body: {args:["a","s"],
-             body:"a=a"+op+"s"},
-      rvalue:true,
-      count:2,
-      funcName: id+"seq"
-    })
-  }
-})();
-
-var math_unary = [
-  "abs",
-  "acos",
-  "asin",
-  "atan",
-  "ceil",
-  "cos",
-  "exp",
-  "floor",
-  "log",
-  "round",
-  "sin",
-  "sqrt",
-  "tan"
-]
-;(function() {
-  for(var i=0; i<math_unary.length; ++i) {
-    var f = math_unary[i]
-    exports[f] = makeOp({
-                    args: ["array", "array"],
-                    pre: {args:[], body:"this_f=Math."+f, thisVars:["this_f"]},
-                    body: {args:["a","b"], body:"a=this_f(b)", thisVars:["this_f"]},
-                    funcName: f
-                  })
-    exports[f+"eq"] = makeOp({
-                      args: ["array"],
-                      pre: {args:[], body:"this_f=Math."+f, thisVars:["this_f"]},
-                      body: {args: ["a"], body:"a=this_f(a)", thisVars:["this_f"]},
-                      rvalue: true,
-                      count: 2,
-                      funcName: f+"eq"
-                    })
-  }
-})();
-
-var math_comm = [
-  "max",
-  "min",
-  "atan2",
-  "pow"
-]
-;(function(){
-  for(var i=0; i<math_comm.length; ++i) {
-    var f= math_comm[i]
-    exports[f] = makeOp({
-                  args:["array", "array", "array"],
-                  pre: {args:[], body:"this_f=Math."+f, thisVars:["this_f"]},
-                  body: {args:["a","b","c"], body:"a=this_f(b,c)", thisVars:["this_f"]},
-                  funcName: f
-                })
-    exports[f+"s"] = makeOp({
-                  args:["array", "array", "scalar"],
-                  pre: {args:[], body:"this_f=Math."+f, thisVars:["this_f"]},
-                  body: {args:["a","b","c"], body:"a=this_f(b,c)", thisVars:["this_f"]},
-                  funcName: f+"s"
-                  })
-    exports[f+"eq"] = makeOp({ args:["array", "array"],
-                  pre: {args:[], body:"this_f=Math."+f, thisVars:["this_f"]},
-                  body: {args:["a","b"], body:"a=this_f(a,b)", thisVars:["this_f"]},
-                  rvalue: true,
-                  count: 2,
-                  funcName: f+"eq"
-                  })
-    exports[f+"seq"] = makeOp({ args:["array", "scalar"],
-                  pre: {args:[], body:"this_f=Math."+f, thisVars:["this_f"]},
-                  body: {args:["a","b"], body:"a=this_f(a,b)", thisVars:["this_f"]},
-                  rvalue:true,
-                  count:2,
-                  funcName: f+"seq"
-                  })
-  }
-})();
-
-var math_noncomm = [
-  "atan2",
-  "pow"
-]
-;(function(){
-  for(var i=0; i<math_noncomm.length; ++i) {
-    var f= math_noncomm[i]
-    exports[f+"op"] = makeOp({
-                  args:["array", "array", "array"],
-                  pre: {args:[], body:"this_f=Math."+f, thisVars:["this_f"]},
-                  body: {args:["a","b","c"], body:"a=this_f(c,b)", thisVars:["this_f"]},
-                  funcName: f+"op"
-                })
-    exports[f+"ops"] = makeOp({
-                  args:["array", "array", "scalar"],
-                  pre: {args:[], body:"this_f=Math."+f, thisVars:["this_f"]},
-                  body: {args:["a","b","c"], body:"a=this_f(c,b)", thisVars:["this_f"]},
-                  funcName: f+"ops"
-                  })
-    exports[f+"opeq"] = makeOp({ args:["array", "array"],
-                  pre: {args:[], body:"this_f=Math."+f, thisVars:["this_f"]},
-                  body: {args:["a","b"], body:"a=this_f(b,a)", thisVars:["this_f"]},
-                  rvalue: true,
-                  count: 2,
-                  funcName: f+"opeq"
-                  })
-    exports[f+"opseq"] = makeOp({ args:["array", "scalar"],
-                  pre: {args:[], body:"this_f=Math."+f, thisVars:["this_f"]},
-                  body: {args:["a","b"], body:"a=this_f(b,a)", thisVars:["this_f"]},
-                  rvalue:true,
-                  count:2,
-                  funcName: f+"opseq"
-                  })
-  }
-})();
-
-exports.any = compile({
-  args:["array"],
-  pre: EmptyProc,
-  body: {args:[{name:"a", lvalue:false, rvalue:true, count:1}], body: "if(a){return true}", localVars: [], thisVars: []},
-  post: {args:[], localVars:[], thisVars:[], body:"return false"},
-  funcName: "any"
-})
-
-exports.all = compile({
-  args:["array"],
-  pre: EmptyProc,
-  body: {args:[{name:"x", lvalue:false, rvalue:true, count:1}], body: "if(!x){return false}", localVars: [], thisVars: []},
-  post: {args:[], localVars:[], thisVars:[], body:"return true"},
-  funcName: "all"
-})
-
-exports.sum = compile({
-  args:["array"],
-  pre: {args:[], localVars:[], thisVars:["this_s"], body:"this_s=0"},
-  body: {args:[{name:"a", lvalue:false, rvalue:true, count:1}], body: "this_s+=a", localVars: [], thisVars: ["this_s"]},
-  post: {args:[], localVars:[], thisVars:["this_s"], body:"return this_s"},
-  funcName: "sum"
-})
-
-exports.prod = compile({
-  args:["array"],
-  pre: {args:[], localVars:[], thisVars:["this_s"], body:"this_s=1"},
-  body: {args:[{name:"a", lvalue:false, rvalue:true, count:1}], body: "this_s*=a", localVars: [], thisVars: ["this_s"]},
-  post: {args:[], localVars:[], thisVars:["this_s"], body:"return this_s"},
-  funcName: "prod"
-})
-
-exports.norm2squared = compile({
-  args:["array"],
-  pre: {args:[], localVars:[], thisVars:["this_s"], body:"this_s=0"},
-  body: {args:[{name:"a", lvalue:false, rvalue:true, count:2}], body: "this_s+=a*a", localVars: [], thisVars: ["this_s"]},
-  post: {args:[], localVars:[], thisVars:["this_s"], body:"return this_s"},
-  funcName: "norm2squared"
-})
-  
-exports.norm2 = compile({
-  args:["array"],
-  pre: {args:[], localVars:[], thisVars:["this_s"], body:"this_s=0"},
-  body: {args:[{name:"a", lvalue:false, rvalue:true, count:2}], body: "this_s+=a*a", localVars: [], thisVars: ["this_s"]},
-  post: {args:[], localVars:[], thisVars:["this_s"], body:"return Math.sqrt(this_s)"},
-  funcName: "norm2"
-})
-  
-
-exports.norminf = compile({
-  args:["array"],
-  pre: {args:[], localVars:[], thisVars:["this_s"], body:"this_s=0"},
-  body: {args:[{name:"a", lvalue:false, rvalue:true, count:4}], body:"if(-a>this_s){this_s=-a}else if(a>this_s){this_s=a}", localVars: [], thisVars: ["this_s"]},
-  post: {args:[], localVars:[], thisVars:["this_s"], body:"return this_s"},
-  funcName: "norminf"
-})
-
-exports.norm1 = compile({
-  args:["array"],
-  pre: {args:[], localVars:[], thisVars:["this_s"], body:"this_s=0"},
-  body: {args:[{name:"a", lvalue:false, rvalue:true, count:3}], body: "this_s+=a<0?-a:a", localVars: [], thisVars: ["this_s"]},
-  post: {args:[], localVars:[], thisVars:["this_s"], body:"return this_s"},
-  funcName: "norm1"
-})
-
-exports.sup = compile({
-  args: [ "array" ],
-  pre:
-   { body: "this_h=-Infinity",
-     args: [],
-     thisVars: [ "this_h" ],
-     localVars: [] },
-  body:
-   { body: "if(_inline_1_arg0_>this_h)this_h=_inline_1_arg0_",
-     args: [{"name":"_inline_1_arg0_","lvalue":false,"rvalue":true,"count":2} ],
-     thisVars: [ "this_h" ],
-     localVars: [] },
-  post:
-   { body: "return this_h",
-     args: [],
-     thisVars: [ "this_h" ],
-     localVars: [] }
- })
-
-exports.inf = compile({
-  args: [ "array" ],
-  pre:
-   { body: "this_h=Infinity",
-     args: [],
-     thisVars: [ "this_h" ],
-     localVars: [] },
-  body:
-   { body: "if(_inline_1_arg0_<this_h)this_h=_inline_1_arg0_",
-     args: [{"name":"_inline_1_arg0_","lvalue":false,"rvalue":true,"count":2} ],
-     thisVars: [ "this_h" ],
-     localVars: [] },
-  post:
-   { body: "return this_h",
-     args: [],
-     thisVars: [ "this_h" ],
-     localVars: [] }
- })
-
-exports.argmin = compile({
-  args:["index","array","shape"],
-  pre:{
-    body:"{this_v=Infinity;this_i=_inline_0_arg2_.slice(0)}",
-    args:[
-      {name:"_inline_0_arg0_",lvalue:false,rvalue:false,count:0},
-      {name:"_inline_0_arg1_",lvalue:false,rvalue:false,count:0},
-      {name:"_inline_0_arg2_",lvalue:false,rvalue:true,count:1}
-      ],
-    thisVars:["this_i","this_v"],
-    localVars:[]},
-  body:{
-    body:"{if(_inline_1_arg1_<this_v){this_v=_inline_1_arg1_;for(var _inline_1_k=0;_inline_1_k<_inline_1_arg0_.length;++_inline_1_k){this_i[_inline_1_k]=_inline_1_arg0_[_inline_1_k]}}}",
-    args:[
-      {name:"_inline_1_arg0_",lvalue:false,rvalue:true,count:2},
-      {name:"_inline_1_arg1_",lvalue:false,rvalue:true,count:2}],
-    thisVars:["this_i","this_v"],
-    localVars:["_inline_1_k"]},
-  post:{
-    body:"{return this_i}",
-    args:[],
-    thisVars:["this_i"],
-    localVars:[]}
-})
-
-exports.argmax = compile({
-  args:["index","array","shape"],
-  pre:{
-    body:"{this_v=-Infinity;this_i=_inline_0_arg2_.slice(0)}",
-    args:[
-      {name:"_inline_0_arg0_",lvalue:false,rvalue:false,count:0},
-      {name:"_inline_0_arg1_",lvalue:false,rvalue:false,count:0},
-      {name:"_inline_0_arg2_",lvalue:false,rvalue:true,count:1}
-      ],
-    thisVars:["this_i","this_v"],
-    localVars:[]},
-  body:{
-    body:"{if(_inline_1_arg1_>this_v){this_v=_inline_1_arg1_;for(var _inline_1_k=0;_inline_1_k<_inline_1_arg0_.length;++_inline_1_k){this_i[_inline_1_k]=_inline_1_arg0_[_inline_1_k]}}}",
-    args:[
-      {name:"_inline_1_arg0_",lvalue:false,rvalue:true,count:2},
-      {name:"_inline_1_arg1_",lvalue:false,rvalue:true,count:2}],
-    thisVars:["this_i","this_v"],
-    localVars:["_inline_1_k"]},
-  post:{
-    body:"{return this_i}",
-    args:[],
-    thisVars:["this_i"],
-    localVars:[]}
-})  
-
-exports.random = makeOp({
-  args: ["array"],
-  pre: {args:[], body:"this_f=Math.random", thisVars:["this_f"]},
-  body: {args: ["a"], body:"a=this_f()", thisVars:["this_f"]},
-  funcName: "random"
-})
-
-exports.assign = makeOp({
-  args:["array", "array"],
-  body: {args:["a", "b"], body:"a=b"},
-  funcName: "assign" })
-
-exports.assigns = makeOp({
-  args:["array", "scalar"],
-  body: {args:["a", "b"], body:"a=b"},
-  funcName: "assigns" })
-
-
-exports.equals = compile({
-  args:["array", "array"],
-  pre: EmptyProc,
-  body: {args:[{name:"x", lvalue:false, rvalue:true, count:1},
-               {name:"y", lvalue:false, rvalue:true, count:1}], 
-        body: "if(x!==y){return false}", 
-        localVars: [], 
-        thisVars: []},
-  post: {args:[], localVars:[], thisVars:[], body:"return true"},
-  funcName: "equals"
-})
-
-
-
-},{"cwise-compiler":49}],49:[function(require,module,exports){
-"use strict"
-
-var createThunk = require("./lib/thunk.js")
-
-function Procedure() {
-  this.argTypes = []
-  this.shimArgs = []
-  this.arrayArgs = []
-  this.scalarArgs = []
-  this.offsetArgs = []
-  this.offsetArgIndex = []
-  this.indexArgs = []
-  this.shapeArgs = []
-  this.funcName = ""
-  this.pre = null
-  this.body = null
-  this.post = null
-  this.debug = false
-}
-
-function compileCwise(user_args) {
-  //Create procedure
-  var proc = new Procedure()
-  
-  //Parse blocks
-  proc.pre    = user_args.pre
-  proc.body   = user_args.body
-  proc.post   = user_args.post
-
-  //Parse arguments
-  var proc_args = user_args.args.slice(0)
-  proc.argTypes = proc_args
-  for(var i=0; i<proc_args.length; ++i) {
-    var arg_type = proc_args[i]
-    if(arg_type === "array") {
-      proc.arrayArgs.push(i)
-      proc.shimArgs.push("array" + i)
-      if(i < proc.pre.args.length && proc.pre.args[i].count>0) {
-        throw new Error("cwise: pre() block may not reference array args")
-      }
-      if(i < proc.post.args.length && proc.post.args[i].count>0) {
-        throw new Error("cwise: post() block may not reference array args")
-      }
-    } else if(arg_type === "scalar") {
-      proc.scalarArgs.push(i)
-      proc.shimArgs.push("scalar" + i)
-    } else if(arg_type === "index") {
-      proc.indexArgs.push(i)
-      if(i < proc.pre.args.length && proc.pre.args[i].count > 0) {
-        throw new Error("cwise: pre() block may not reference array index")
-      }
-      if(i < proc.body.args.length && proc.body.args[i].lvalue) {
-        throw new Error("cwise: body() block may not write to array index")
-      }
-      if(i < proc.post.args.length && proc.post.args[i].count > 0) {
-        throw new Error("cwise: post() block may not reference array index")
-      }
-    } else if(arg_type === "shape") {
-      proc.shapeArgs.push(i)
-      if(i < proc.pre.args.length && proc.pre.args[i].lvalue) {
-        throw new Error("cwise: pre() block may not write to array shape")
-      }
-      if(i < proc.body.args.length && proc.body.args[i].lvalue) {
-        throw new Error("cwise: body() block may not write to array shape")
-      }
-      if(i < proc.post.args.length && proc.post.args[i].lvalue) {
-        throw new Error("cwise: post() block may not write to array shape")
-      }
-    } else if(typeof arg_type === "object" && arg_type.offset) {
-      proc.argTypes[i] = "offset"
-      proc.offsetArgs.push({ array: arg_type.array, offset:arg_type.offset })
-      proc.offsetArgIndex.push(i)
-    } else {
-      throw new Error("cwise: Unknown argument type " + proc_args[i])
-    }
-  }
-  
-  //Make sure at least one array argument was specified
-  if(proc.arrayArgs.length <= 0) {
-    throw new Error("cwise: No array arguments specified")
-  }
-  
-  //Make sure arguments are correct
-  if(proc.pre.args.length > proc_args.length) {
-    throw new Error("cwise: Too many arguments in pre() block")
-  }
-  if(proc.body.args.length > proc_args.length) {
-    throw new Error("cwise: Too many arguments in body() block")
-  }
-  if(proc.post.args.length > proc_args.length) {
-    throw new Error("cwise: Too many arguments in post() block")
-  }
-
-  //Check debug flag
-  proc.debug = !!user_args.printCode || !!user_args.debug
-  
-  //Retrieve name
-  proc.funcName = user_args.funcName || "cwise"
-  
-  //Read in block size
-  proc.blockSize = user_args.blockSize || 64
-
-  return createThunk(proc)
-}
-
-module.exports = compileCwise
-
-},{"./lib/thunk.js":51}],50:[function(require,module,exports){
-"use strict"
-
-var uniq = require("uniq")
-
-function innerFill(order, proc, body) {
-  var dimension = order.length
-    , nargs = proc.arrayArgs.length
-    , has_index = proc.indexArgs.length>0
-    , code = []
-    , vars = []
-    , idx=0, pidx=0, i, j
-  for(i=0; i<dimension; ++i) {
-    vars.push(["i",i,"=0"].join(""))
-  }
-  //Compute scan deltas
-  for(j=0; j<nargs; ++j) {
-    for(i=0; i<dimension; ++i) {
-      pidx = idx
-      idx = order[i]
-      if(i === 0) {
-        vars.push(["d",j,"s",i,"=t",j,"p",idx].join(""))
-      } else {
-        vars.push(["d",j,"s",i,"=(t",j,"p",idx,"-s",pidx,"*t",j,"p",pidx,")"].join(""))
-      }
-    }
-  }
-  code.push("var " + vars.join(","))
-  //Scan loop
-  for(i=dimension-1; i>=0; --i) {
-    idx = order[i]
-    code.push(["for(i",i,"=0;i",i,"<s",idx,";++i",i,"){"].join(""))
-  }
-  //Push body of inner loop
-  code.push(body)
-  //Advance scan pointers
-  for(i=0; i<dimension; ++i) {
-    pidx = idx
-    idx = order[i]
-    for(j=0; j<nargs; ++j) {
-      code.push(["p",j,"+=d",j,"s",i].join(""))
-    }
-    if(has_index) {
-      if(i > 0) {
-        code.push(["index[",pidx,"]-=s",pidx].join(""))
-      }
-      code.push(["++index[",idx,"]"].join(""))
-    }
-    code.push("}")
-  }
-  return code.join("\n")
-}
-
-function outerFill(matched, order, proc, body) {
-  var dimension = order.length
-    , nargs = proc.arrayArgs.length
-    , blockSize = proc.blockSize
-    , has_index = proc.indexArgs.length > 0
-    , code = []
-  for(var i=0; i<nargs; ++i) {
-    code.push(["var offset",i,"=p",i].join(""))
-  }
-  //Generate matched loops
-  for(var i=matched; i<dimension; ++i) {
-    code.push(["for(var j"+i+"=SS[", order[i], "]|0;j", i, ">0;){"].join(""))
-    code.push(["if(j",i,"<",blockSize,"){"].join(""))
-    code.push(["s",order[i],"=j",i].join(""))
-    code.push(["j",i,"=0"].join(""))
-    code.push(["}else{s",order[i],"=",blockSize].join(""))
-    code.push(["j",i,"-=",blockSize,"}"].join(""))
-    if(has_index) {
-      code.push(["index[",order[i],"]=j",i].join(""))
-    }
-  }
-  for(var i=0; i<nargs; ++i) {
-    var indexStr = ["offset"+i]
-    for(var j=matched; j<dimension; ++j) {
-      indexStr.push(["j",j,"*t",i,"p",order[j]].join(""))
-    }
-    code.push(["p",i,"=(",indexStr.join("+"),")"].join(""))
-  }
-  code.push(innerFill(order, proc, body))
-  for(var i=matched; i<dimension; ++i) {
-    code.push("}")
-  }
-  return code.join("\n")
-}
-
-//Count the number of compatible inner orders
-function countMatches(orders) {
-  var matched = 0, dimension = orders[0].length
-  while(matched < dimension) {
-    for(var j=1; j<orders.length; ++j) {
-      if(orders[j][matched] !== orders[0][matched]) {
-        return matched
-      }
-    }
-    ++matched
-  }
-  return matched
-}
-
-//Processes a block according to the given data types
-function processBlock(block, proc, dtypes) {
-  var code = block.body
-  var pre = []
-  var post = []
-  for(var i=0; i<block.args.length; ++i) {
-    var carg = block.args[i]
-    if(carg.count <= 0) {
-      continue
-    }
-    var re = new RegExp(carg.name, "g")
-    var ptrStr = ""
-    var arrNum = proc.arrayArgs.indexOf(i)
-    switch(proc.argTypes[i]) {
-      case "offset":
-        var offArgIndex = proc.offsetArgIndex.indexOf(i)
-        var offArg = proc.offsetArgs[offArgIndex]
-        arrNum = offArg.array
-        ptrStr = "+q" + offArgIndex
-      case "array":
-        ptrStr = "p" + arrNum + ptrStr
-        var localStr = "l" + i
-        var arrStr = "a" + arrNum
-        if(carg.count === 1) {
-          if(dtypes[arrNum] === "generic") {
-            if(carg.lvalue) {
-              pre.push(["var ", localStr, "=", arrStr, ".get(", ptrStr, ")"].join(""))
-              code = code.replace(re, localStr)
-              post.push([arrStr, ".set(", ptrStr, ",", localStr,")"].join(""))
-            } else {
-              code = code.replace(re, [arrStr, ".get(", ptrStr, ")"].join(""))
-            }
-          } else {
-            code = code.replace(re, [arrStr, "[", ptrStr, "]"].join(""))
-          }
-        } else if(dtypes[arrNum] === "generic") {
-          pre.push(["var ", localStr, "=", arrStr, ".get(", ptrStr, ")"].join(""))
-          code = code.replace(re, localStr)
-          if(carg.lvalue) {
-            post.push([arrStr, ".set(", ptrStr, ",", localStr,")"].join(""))
-          }
-        } else {
-          pre.push(["var ", localStr, "=", arrStr, "[", ptrStr, "]"].join(""))
-          code = code.replace(re, localStr)
-          if(carg.lvalue) {
-            post.push([arrStr, "[", ptrStr, "]=", localStr].join(""))
-          }
-        }
-      break
-      case "scalar":
-        code = code.replace(re, "Y" + proc.scalarArgs.indexOf(i))
-      break
-      case "index":
-        code = code.replace(re, "index")
-      break
-      case "shape":
-        code = code.replace(re, "shape")
-      break
-    }
-  }
-  return [pre.join("\n"), code, post.join("\n")].join("\n").trim()
-}
-
-function typeSummary(dtypes) {
-  var summary = new Array(dtypes.length)
-  var allEqual = true
-  for(var i=0; i<dtypes.length; ++i) {
-    var t = dtypes[i]
-    var digits = t.match(/\d+/)
-    if(!digits) {
-      digits = ""
-    } else {
-      digits = digits[0]
-    }
-    if(t.charAt(0) === 0) {
-      summary[i] = "u" + t.charAt(1) + digits
-    } else {
-      summary[i] = t.charAt(0) + digits
-    }
-    if(i > 0) {
-      allEqual = allEqual && summary[i] === summary[i-1]
-    }
-  }
-  if(allEqual) {
-    return summary[0]
-  }
-  return summary.join("")
-}
-
-//Generates a cwise operator
-function generateCWiseOp(proc, typesig) {
-
-  //Compute dimension
-  var dimension = typesig[1].length|0
-  var orders = new Array(proc.arrayArgs.length)
-  var dtypes = new Array(proc.arrayArgs.length)
-
-  //First create arguments for procedure
-  var arglist = ["SS"]
-  var code = ["'use strict'"]
-  var vars = []
-  
-  for(var j=0; j<dimension; ++j) {
-    vars.push(["s", j, "=SS[", j, "]"].join(""))
-  }
-  for(var i=0; i<proc.arrayArgs.length; ++i) {
-    arglist.push("a"+i)
-    arglist.push("t"+i)
-    arglist.push("p"+i)
-    dtypes[i] = typesig[2*i]
-    orders[i] = typesig[2*i+1]
-    
-    for(var j=0; j<dimension; ++j) {
-      vars.push(["t",i,"p",j,"=t",i,"[",j,"]"].join(""))
-    }
-  }
-  for(var i=0; i<proc.scalarArgs.length; ++i) {
-    arglist.push("Y" + i)
-  }
-  if(proc.shapeArgs.length > 0) {
-    vars.push("shape=SS.slice(0)")
-  }
-  if(proc.indexArgs.length > 0) {
-    var zeros = new Array(dimension)
-    for(var i=0; i<dimension; ++i) {
-      zeros[i] = "0"
-    }
-    vars.push(["index=[", zeros.join(","), "]"].join(""))
-  }
-  for(var i=0; i<proc.offsetArgs.length; ++i) {
-    var off_arg = proc.offsetArgs[i]
-    var init_string = []
-    for(var j=0; j<off_arg.offset.length; ++j) {
-      if(off_arg.offset[j] === 0) {
-        continue
-      } else if(off_arg.offset[j] === 1) {
-        init_string.push(["t", off_arg.array, "p", j].join(""))      
-      } else {
-        init_string.push([off_arg.offset[j], "*t", off_arg.array, "p", j].join(""))
-      }
-    }
-    if(init_string.length === 0) {
-      vars.push("q" + i + "=0")
-    } else {
-      vars.push(["q", i, "=", init_string.join("+")].join(""))
-    }
-  }
-
-  //Prepare this variables
-  var thisVars = uniq([].concat(proc.pre.thisVars)
-                      .concat(proc.body.thisVars)
-                      .concat(proc.post.thisVars))
-  vars = vars.concat(thisVars)
-  code.push("var " + vars.join(","))
-  for(var i=0; i<proc.arrayArgs.length; ++i) {
-    code.push("p"+i+"|=0")
-  }
-  
-  //Inline prelude
-  if(proc.pre.body.length > 3) {
-    code.push(processBlock(proc.pre, proc, dtypes))
-  }
-
-  //Process body
-  var body = processBlock(proc.body, proc, dtypes)
-  var matched = countMatches(orders)
-  if(matched < dimension) {
-    code.push(outerFill(matched, orders[0], proc, body))
-  } else {
-    code.push(innerFill(orders[0], proc, body))
-  }
-
-  //Inline epilog
-  if(proc.post.body.length > 3) {
-    code.push(processBlock(proc.post, proc, dtypes))
-  }
-  
-  if(proc.debug) {
-    console.log("Generated cwise routine for ", typesig, ":\n\n", code.join("\n"))
-  }
-  
-  var loopName = [(proc.funcName||"unnamed"), "_cwise_loop_", orders[0].join("s"),"m",matched,typeSummary(dtypes)].join("")
-  var f = new Function(["function ",loopName,"(", arglist.join(","),"){", code.join("\n"),"} return ", loopName].join(""))
-  return f()
-}
-module.exports = generateCWiseOp
-},{"uniq":52}],51:[function(require,module,exports){
-"use strict"
-
-var compile = require("./compile.js")
-
-function createThunk(proc) {
-  var code = ["'use strict'", "var CACHED={}"]
-  var vars = []
-  var thunkName = proc.funcName + "_cwise_thunk"
-  
-  //Build thunk
-  code.push(["return function ", thunkName, "(", proc.shimArgs.join(","), "){"].join(""))
-  var typesig = []
-  var string_typesig = []
-  var proc_args = [["array",proc.arrayArgs[0],".shape"].join("")]
-  for(var i=0; i<proc.arrayArgs.length; ++i) {
-    var j = proc.arrayArgs[i]
-    vars.push(["t", j, "=array", j, ".dtype,",
-               "r", j, "=array", j, ".order"].join(""))
-    typesig.push("t" + j)
-    typesig.push("r" + j)
-    string_typesig.push("t"+j)
-    string_typesig.push("r"+j+".join()")
-    proc_args.push("array" + j + ".data")
-    proc_args.push("array" + j + ".stride")
-    proc_args.push("array" + j + ".offset|0")
-  }
-  for(var i=0; i<proc.scalarArgs.length; ++i) {
-    proc_args.push("scalar" + proc.scalarArgs[i])
-  }
-  vars.push(["type=[", string_typesig.join(","), "].join()"].join(""))
-  vars.push("proc=CACHED[type]")
-  code.push("var " + vars.join(","))
-  
-  code.push(["if(!proc){",
-             "CACHED[type]=proc=compile([", typesig.join(","), "])}",
-             "return proc(", proc_args.join(","), ")}"].join(""))
-
-  if(proc.debug) {
-    console.log("Generated thunk:", code.join("\n"))
-  }
-  
-  //Compile thunk
-  var thunk = new Function("compile", code.join("\n"))
-  return thunk(compile.bind(undefined, proc))
-}
-
-module.exports = createThunk
-
-},{"./compile.js":50}],52:[function(require,module,exports){
-"use strict"
-
-function unique_pred(list, compare) {
-  var ptr = 1
-    , len = list.length
-    , a=list[0], b=list[0]
-  for(var i=1; i<len; ++i) {
-    b = a
-    a = list[i]
-    if(compare(a, b)) {
-      if(i === ptr) {
-        ptr++
-        continue
-      }
-      list[ptr++] = a
-    }
-  }
-  list.length = ptr
-  return list
-}
-
-function unique_eq(list) {
-  var ptr = 1
-    , len = list.length
-    , a=list[0], b = list[0]
-  for(var i=1; i<len; ++i, b=a) {
-    b = a
-    a = list[i]
-    if(a !== b) {
-      if(i === ptr) {
-        ptr++
-        continue
-      }
-      list[ptr++] = a
-    }
-  }
-  list.length = ptr
-  return list
-}
-
-function unique(list, compare, sorted) {
-  if(list.length === 0) {
-    return list
-  }
-  if(compare) {
-    if(!sorted) {
-      list.sort(compare)
-    }
-    return unique_pred(list, compare)
-  }
-  if(!sorted) {
-    list.sort()
-  }
-  return unique_eq(list)
-}
-
-module.exports = unique
-
-},{}],53:[function(require,module,exports){
-(function (Buffer){
-var iota = require("iota-array")
-
-var arrayMethods = [
-  "concat",
-  "join",
-  "slice",
-  "toString",
-  "indexOf",
-  "lastIndexOf",
-  "forEach",
-  "every",
-  "some",
-  "filter",
-  "map",
-  "reduce",
-  "reduceRight"
-]
-
-var hasTypedArrays  = ((typeof Float64Array) !== "undefined")
-var hasBuffer       = ((typeof Buffer) !== "undefined")
-
-function compare1st(a, b) {
-  return a[0] - b[0]
-}
-
-function order() {
-  var stride = this.stride
-  var terms = new Array(stride.length)
-  var i
-  for(i=0; i<terms.length; ++i) {
-    terms[i] = [Math.abs(stride[i]), i]
-  }
-  terms.sort(compare1st)
-  var result = new Array(terms.length)
-  for(i=0; i<result.length; ++i) {
-    result[i] = terms[i][1]
-  }
-  return result
-}
-
-function compileConstructor(dtype, dimension) {
-  var className = ["View", dimension, "d", dtype].join("")
-  if(dimension < 0) {
-    className = "View_Nil" + dtype
-  }
-  var useGetters = (dtype === "generic")
-  
-  if(dimension === -1) {
-    //Special case for trivial arrays
-    var code = 
-      "function "+className+"(a){this.data=a;};\
-var proto="+className+".prototype;\
-proto.dtype='"+dtype+"';\
-proto.index=function(){return -1};\
-proto.size=0;\
-proto.dimension=-1;\
-proto.shape=proto.stride=proto.order=[];\
-proto.lo=proto.hi=proto.transpose=proto.step=\
-function(){return new "+className+"(this.data);};\
-proto.get=proto.set=function(){};\
-proto.pick=function(){return null};\
-return function construct_"+className+"(a){return new "+className+"(a);}"
-    var procedure = new Function(code)
-    return procedure()
-  } else if(dimension === 0) {
-    //Special case for 0d arrays
-    var code =
-      "function "+className+"(a,d) {\
-this.data = a;\
-this.offset = d\
-};\
-var proto="+className+".prototype;\
-proto.dtype='"+dtype+"';\
-proto.index=function(){return this.offset};\
-proto.dimension=0;\
-proto.size=1;\
-proto.shape=\
-proto.stride=\
-proto.order=[];\
-proto.lo=\
-proto.hi=\
-proto.transpose=\
-proto.step=function "+className+"_copy() {\
-return new "+className+"(this.data,this.offset)\
-};\
-proto.pick=function "+className+"_pick(){\
-return TrivialArray(this.data);\
-};\
-proto.valueOf=proto.get=function "+className+"_get(){\
-return "+(useGetters ? "this.data.get(this.offset)" : "this.data[this.offset]")+
-"};\
-proto.set=function "+className+"_set(v){\
-return "+(useGetters ? "this.data.set(this.offset,v)" : "this.data[this.offset]=v")+"\
-};\
-return function construct_"+className+"(a,b,c,d){return new "+className+"(a,d)}"
-    var procedure = new Function("TrivialArray", code)
-    return procedure(CACHED_CONSTRUCTORS[dtype][0])
-  }
-
-  var code = ["'use strict'"]
-    
-  //Create constructor for view
-  var indices = iota(dimension)
-  var args = indices.map(function(i) { return "i"+i })
-  var index_str = "this.offset+" + indices.map(function(i) {
-        return "this._stride" + i + "*i" + i
-      }).join("+")
-  code.push("function "+className+"(a,"+
-    indices.map(function(i) {
-      return "b"+i
-    }).join(",") + "," +
-    indices.map(function(i) {
-      return "c"+i
-    }).join(",") + ",d){this.data=a")
-  for(var i=0; i<dimension; ++i) {
-    code.push("this._shape"+i+"=b"+i+"|0")
-  }
-  for(var i=0; i<dimension; ++i) {
-    code.push("this._stride"+i+"=c"+i+"|0")
-  }
-  code.push("this.offset=d|0}",
-    "var proto="+className+".prototype",
-    "proto.dtype='"+dtype+"'",
-    "proto.dimension="+dimension)
-  
-  //view.stride and view.shape
-  var strideClassName = "VStride" + dimension + "d" + dtype
-  var shapeClassName = "VShape" + dimension + "d" + dtype
-  var props = {"stride":strideClassName, "shape":shapeClassName}
-  for(var prop in props) {
-    var arrayName = props[prop]
-    code.push(
-      "function " + arrayName + "(v) {this._v=v} var aproto=" + arrayName + ".prototype",
-      "aproto.length="+dimension)
-    
-    var array_elements = []
-    for(var i=0; i<dimension; ++i) {
-      array_elements.push(["this._v._", prop, i].join(""))
-    }
-    code.push(
-      "aproto.toJSON=function " + arrayName + "_toJSON(){return [" + array_elements.join(",") + "]}",
-      "aproto.valueOf=aproto.toString=function " + arrayName + "_toString(){return [" + array_elements.join(",") + "].join()}")
-    
-    for(var i=0; i<dimension; ++i) {
-      code.push("Object.defineProperty(aproto,"+i+",{get:function(){return this._v._"+prop+i+"},set:function(v){return this._v._"+prop+i+"=v|0},enumerable:true})")
-    }
-    for(var i=0; i<arrayMethods.length; ++i) {
-      if(arrayMethods[i] in Array.prototype) {
-        code.push("aproto."+arrayMethods[i]+"=Array.prototype."+arrayMethods[i])
-      }
-    }
-    code.push(["Object.defineProperty(proto,'",prop,"',{get:function ", arrayName, "_get(){return new ", arrayName, "(this)},set: function ", arrayName, "_set(v){"].join(""))
-    for(var i=0; i<dimension; ++i) {
-      code.push("this._"+prop+i+"=v["+i+"]|0")
-    }
-    code.push("return v}})")
-  }
-  
-  //view.size:
-  code.push("Object.defineProperty(proto,'size',{get:function "+className+"_size(){\
-return "+indices.map(function(i) { return "this._shape"+i }).join("*"),
-"}})")
-
-  //view.order:
-  if(dimension === 1) {
-    code.push("proto.order=[0]")
-  } else {
-    code.push("Object.defineProperty(proto,'order',{get:")
-    if(dimension < 4) {
-      code.push("function "+className+"_order(){")
-      if(dimension === 2) {
-        code.push("return (Math.abs(this._stride0)>Math.abs(this._stride1))?[1,0]:[0,1]}})")
-      } else if(dimension === 3) {
-        code.push(
-"var s0=Math.abs(this._stride0),s1=Math.abs(this._stride1),s2=Math.abs(this._stride2);\
-if(s0>s1){\
-if(s1>s2){\
-return [2,1,0];\
-}else if(s0>s2){\
-return [1,2,0];\
-}else{\
-return [1,0,2];\
-}\
-}else if(s0>s2){\
-return [2,0,1];\
-}else if(s2>s1){\
-return [0,1,2];\
-}else{\
-return [0,2,1];\
-}}})")
-      }
-    } else {
-      code.push("ORDER})")
-    }
-  }
-  
-  //view.set(i0, ..., v):
-  code.push(
-"proto.set=function "+className+"_set("+args.join(",")+",v){")
-  if(useGetters) {
-    code.push("return this.data.set("+index_str+",v)}")
-  } else {
-    code.push("return this.data["+index_str+"]=v}")
-  }
-  
-  //view.get(i0, ...):
-  code.push("proto.get=function "+className+"_get("+args.join(",")+"){")
-  if(useGetters) {
-    code.push("return this.data.get("+index_str+")}")
-  } else {
-    code.push("return this.data["+index_str+"]}")
-  }
-  
-  //view.index:
-  code.push(
-    "proto.index=function "+className+"_index(", args.join(), "){return "+index_str+"}")
-
-  //view.hi():
-  code.push("proto.hi=function "+className+"_hi("+args.join(",")+"){return new "+className+"(this.data,"+
-    indices.map(function(i) {
-      return ["(typeof i",i,"!=='number'||i",i,"<0)?this._shape", i, ":i", i,"|0"].join("")
-    }).join(",")+","+
-    indices.map(function(i) {
-      return "this._stride"+i
-    }).join(",")+",this.offset)}")
-  
-  //view.lo():
-  var a_vars = indices.map(function(i) { return "a"+i+"=this._shape"+i })
-  var c_vars = indices.map(function(i) { return "c"+i+"=this._stride"+i })
-  code.push("proto.lo=function "+className+"_lo("+args.join(",")+"){var b=this.offset,d=0,"+a_vars.join(",")+","+c_vars.join(","))
-  for(var i=0; i<dimension; ++i) {
-    code.push(
-"if(typeof i"+i+"==='number'&&i"+i+">=0){\
-d=i"+i+"|0;\
-b+=c"+i+"*d;\
-a"+i+"-=d}")
-  }
-  code.push("return new "+className+"(this.data,"+
-    indices.map(function(i) {
-      return "a"+i
-    }).join(",")+","+
-    indices.map(function(i) {
-      return "c"+i
-    }).join(",")+",b)}")
-  
-  //view.step():
-  code.push("proto.step=function "+className+"_step("+args.join(",")+"){var "+
-    indices.map(function(i) {
-      return "a"+i+"=this._shape"+i
-    }).join(",")+","+
-    indices.map(function(i) {
-      return "b"+i+"=this._stride"+i
-    }).join(",")+",c=this.offset,d=0,ceil=Math.ceil")
-  for(var i=0; i<dimension; ++i) {
-    code.push(
-"if(typeof i"+i+"==='number'){\
-d=i"+i+"|0;\
-if(d<0){\
-c+=b"+i+"*(a"+i+"-1);\
-a"+i+"=ceil(-a"+i+"/d)\
-}else{\
-a"+i+"=ceil(a"+i+"/d)\
-}\
-b"+i+"*=d\
-}")
-  }
-  code.push("return new "+className+"(this.data,"+
-    indices.map(function(i) {
-      return "a" + i
-    }).join(",")+","+
-    indices.map(function(i) {
-      return "b" + i
-    }).join(",")+",c)}")
-  
-  //view.transpose():
-  var tShape = new Array(dimension)
-  var tStride = new Array(dimension)
-  for(var i=0; i<dimension; ++i) {
-    tShape[i] = "a[i"+i+"]"
-    tStride[i] = "b[i"+i+"]"
-  }
-  code.push("proto.transpose=function "+className+"_transpose("+args+"){"+
-    args.map(function(n,idx) { return n + "=(" + n + "===undefined?" + idx + ":" + n + "|0)"}).join(";"),
-    "var a=this.shape,b=this.stride;return new "+className+"(this.data,"+tShape.join(",")+","+tStride.join(",")+",this.offset)}")
-  
-  //view.pick():
-  code.push("proto.pick=function "+className+"_pick("+args+"){var a=[],b=[],c=this.offset")
-  for(var i=0; i<dimension; ++i) {
-    code.push("if(typeof i"+i+"==='number'&&i"+i+">=0){c=(c+this._stride"+i+"*i"+i+")|0}else{a.push(this._shape"+i+");b.push(this._stride"+i+")}")
-  }
-  code.push("var ctor=CTOR_LIST[a.length+1];return ctor(this.data,a,b,c)}")
-    
-  //Add return statement
-  code.push("return function construct_"+className+"(data,shape,stride,offset){return new "+className+"(data,"+
-    indices.map(function(i) {
-      return "shape["+i+"]"
-    }).join(",")+","+
-    indices.map(function(i) {
-      return "stride["+i+"]"
-    }).join(",")+",offset)}")
-
-  //Compile procedure
-  var procedure = new Function("CTOR_LIST", "ORDER", code.join("\n"))
-  return procedure(CACHED_CONSTRUCTORS[dtype], order)
-}
-
-function arrayDType(data) {
-  if(hasBuffer) {
-    if(Buffer.isBuffer(data)) {
-      return "buffer"
-    }
-  }
-  if(hasTypedArrays) {
-    switch(Object.prototype.toString.call(data)) {
-      case "[object Float64Array]":
-        return "float64"
-      case "[object Float32Array]":
-        return "float32"
-      case "[object Int8Array]":
-        return "int8"
-      case "[object Int16Array]":
-        return "int16"
-      case "[object Int32Array]":
-        return "int32"
-      case "[object Uint8Array]":
-        return "uint8"
-      case "[object Uint16Array]":
-        return "uint16"
-      case "[object Uint32Array]":
-        return "uint32"
-      case "[object Uint8ClampedArray]":
-        return "uint8_clamped"
-    }
-  }
-  if(Array.isArray(data)) {
-    return "array"
-  }
-  return "generic"
-}
-
-var CACHED_CONSTRUCTORS = {
-  "float32":[],
-  "float64":[],
-  "int8":[],
-  "int16":[],
-  "int32":[],
-  "uint8":[],
-  "uint16":[],
-  "uint32":[],
-  "array":[],
-  "uint8_clamped":[],
-  "buffer":[],
-  "generic":[]
-}
-
-;(function() {
-  for(var id in CACHED_CONSTRUCTORS) {
-    CACHED_CONSTRUCTORS[id].push(compileConstructor(id, -1))
-  }
-});
-
-function wrappedNDArrayCtor(data, shape, stride, offset) {
-  if(data === undefined) {
-    var ctor = CACHED_CONSTRUCTORS.array[0]
-    return ctor([])
-  } else if(typeof data === "number") {
-    data = [data]
-  }
-  if(shape === undefined) {
-    shape = [ data.length ]
-  }
-  var d = shape.length
-  if(stride === undefined) {
-    stride = new Array(d)
-    for(var i=d-1, sz=1; i>=0; --i) {
-      stride[i] = sz
-      sz *= shape[i]
-    }
-  }
-  if(offset === undefined) {
-    offset = 0
-    for(var i=0; i<d; ++i) {
-      if(stride[i] < 0) {
-        offset -= (shape[i]-1)*stride[i]
-      }
-    }
-  }
-  var dtype = arrayDType(data)
-  var ctor_list = CACHED_CONSTRUCTORS[dtype]
-  while(ctor_list.length <= d+1) {
-    ctor_list.push(compileConstructor(dtype, ctor_list.length-1))
-  }
-  var ctor = ctor_list[d+1]
-  return ctor(data, shape, stride, offset)
-}
-
-module.exports = wrappedNDArrayCtor
-}).call(this,require("buffer").Buffer)
-},{"buffer":63,"iota-array":54}],54:[function(require,module,exports){
-"use strict"
-
-function iota(n) {
-  var result = new Array(n)
-  for(var i=0; i<n; ++i) {
-    result[i] = i
-  }
-  return result
-}
-
-module.exports = iota
-},{}],55:[function(require,module,exports){
-/*
- * A fast javascript implementation of simplex noise by Jonas Wagner
- *
- * Based on a speed-improved simplex noise algorithm for 2D, 3D and 4D in Java.
- * Which is based on example code by Stefan Gustavson (stegu@itn.liu.se).
- * With Optimisations by Peter Eastman (peastman@drizzle.stanford.edu).
- * Better rank ordering method by Stefan Gustavson in 2012.
- *
- *
- * Copyright (C) 2012 Jonas Wagner
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- */
-(function () {
-
-var F2 = 0.5 * (Math.sqrt(3.0) - 1.0),
-    G2 = (3.0 - Math.sqrt(3.0)) / 6.0,
-    F3 = 1.0 / 3.0,
-    G3 = 1.0 / 6.0,
-    F4 = (Math.sqrt(5.0) - 1.0) / 4.0,
-    G4 = (5.0 - Math.sqrt(5.0)) / 20.0;
-
-
-function SimplexNoise(random) {
-    if (!random) random = Math.random;
-    this.p = new Uint8Array(256);
-    this.perm = new Uint8Array(512);
-    this.permMod12 = new Uint8Array(512);
-    for (var i = 0; i < 256; i++) {
-        this.p[i] = random() * 256;
-    }
-    for (i = 0; i < 512; i++) {
-        this.perm[i] = this.p[i & 255];
-        this.permMod12[i] = this.perm[i] % 12;
-    }
-
-}
-SimplexNoise.prototype = {
-    grad3: new Float32Array([1, 1, 0,
-                            - 1, 1, 0,
-                            1, - 1, 0,
-
-                            - 1, - 1, 0,
-                            1, 0, 1,
-                            - 1, 0, 1,
-
-                            1, 0, - 1,
-                            - 1, 0, - 1,
-                            0, 1, 1,
-
-                            0, - 1, 1,
-                            0, 1, - 1,
-                            0, - 1, - 1]),
-    grad4: new Float32Array([0, 1, 1, 1, 0, 1, 1, - 1, 0, 1, - 1, 1, 0, 1, - 1, - 1,
-                            0, - 1, 1, 1, 0, - 1, 1, - 1, 0, - 1, - 1, 1, 0, - 1, - 1, - 1,
-                            1, 0, 1, 1, 1, 0, 1, - 1, 1, 0, - 1, 1, 1, 0, - 1, - 1,
-                            - 1, 0, 1, 1, - 1, 0, 1, - 1, - 1, 0, - 1, 1, - 1, 0, - 1, - 1,
-                            1, 1, 0, 1, 1, 1, 0, - 1, 1, - 1, 0, 1, 1, - 1, 0, - 1,
-                            - 1, 1, 0, 1, - 1, 1, 0, - 1, - 1, - 1, 0, 1, - 1, - 1, 0, - 1,
-                            1, 1, 1, 0, 1, 1, - 1, 0, 1, - 1, 1, 0, 1, - 1, - 1, 0,
-                            - 1, 1, 1, 0, - 1, 1, - 1, 0, - 1, - 1, 1, 0, - 1, - 1, - 1, 0]),
-    noise2D: function (xin, yin) {
-        var permMod12 = this.permMod12,
-            perm = this.perm,
-            grad3 = this.grad3;
-        var n0, n1, n2; // Noise contributions from the three corners
-        // Skew the input space to determine which simplex cell we're in
-        var s = (xin + yin) * F2; // Hairy factor for 2D
-        var i = Math.floor(xin + s);
-        var j = Math.floor(yin + s);
-        var t = (i + j) * G2;
-        var X0 = i - t; // Unskew the cell origin back to (x,y) space
-        var Y0 = j - t;
-        var x0 = xin - X0; // The x,y distances from the cell origin
-        var y0 = yin - Y0;
-        // For the 2D case, the simplex shape is an equilateral triangle.
-        // Determine which simplex we are in.
-        var i1, j1; // Offsets for second (middle) corner of simplex in (i,j) coords
-        if (x0 > y0) {
-            i1 = 1;
-            j1 = 0;
-        } // lower triangle, XY order: (0,0)->(1,0)->(1,1)
-        else {
-            i1 = 0;
-            j1 = 1;
-        } // upper triangle, YX order: (0,0)->(0,1)->(1,1)
-        // A step of (1,0) in (i,j) means a step of (1-c,-c) in (x,y), and
-        // a step of (0,1) in (i,j) means a step of (-c,1-c) in (x,y), where
-        // c = (3-sqrt(3))/6
-        var x1 = x0 - i1 + G2; // Offsets for middle corner in (x,y) unskewed coords
-        var y1 = y0 - j1 + G2;
-        var x2 = x0 - 1.0 + 2.0 * G2; // Offsets for last corner in (x,y) unskewed coords
-        var y2 = y0 - 1.0 + 2.0 * G2;
-        // Work out the hashed gradient indices of the three simplex corners
-        var ii = i & 255;
-        var jj = j & 255;
-        // Calculate the contribution from the three corners
-        var t0 = 0.5 - x0 * x0 - y0 * y0;
-        if (t0 < 0) n0 = 0.0;
-        else {
-            var gi0 = permMod12[ii + perm[jj]] * 3;
-            t0 *= t0;
-            n0 = t0 * t0 * (grad3[gi0] * x0 + grad3[gi0 + 1] * y0); // (x,y) of grad3 used for 2D gradient
-        }
-        var t1 = 0.5 - x1 * x1 - y1 * y1;
-        if (t1 < 0) n1 = 0.0;
-        else {
-            var gi1 = permMod12[ii + i1 + perm[jj + j1]] * 3;
-            t1 *= t1;
-            n1 = t1 * t1 * (grad3[gi1] * x1 + grad3[gi1 + 1] * y1);
-        }
-        var t2 = 0.5 - x2 * x2 - y2 * y2;
-        if (t2 < 0) n2 = 0.0;
-        else {
-            var gi2 = permMod12[ii + 1 + perm[jj + 1]] * 3;
-            t2 *= t2;
-            n2 = t2 * t2 * (grad3[gi2] * x2 + grad3[gi2 + 1] * y2);
-        }
-        // Add contributions from each corner to get the final noise value.
-        // The result is scaled to return values in the interval [-1,1].
-        return 70.0 * (n0 + n1 + n2);
-    },
-    // 3D simplex noise
-    noise3D: function (xin, yin, zin) {
-        var permMod12 = this.permMod12,
-            perm = this.perm,
-            grad3 = this.grad3;
-        var n0, n1, n2, n3; // Noise contributions from the four corners
-        // Skew the input space to determine which simplex cell we're in
-        var s = (xin + yin + zin) * F3; // Very nice and simple skew factor for 3D
-        var i = Math.floor(xin + s);
-        var j = Math.floor(yin + s);
-        var k = Math.floor(zin + s);
-        var t = (i + j + k) * G3;
-        var X0 = i - t; // Unskew the cell origin back to (x,y,z) space
-        var Y0 = j - t;
-        var Z0 = k - t;
-        var x0 = xin - X0; // The x,y,z distances from the cell origin
-        var y0 = yin - Y0;
-        var z0 = zin - Z0;
-        // For the 3D case, the simplex shape is a slightly irregular tetrahedron.
-        // Determine which simplex we are in.
-        var i1, j1, k1; // Offsets for second corner of simplex in (i,j,k) coords
-        var i2, j2, k2; // Offsets for third corner of simplex in (i,j,k) coords
-        if (x0 >= y0) {
-            if (y0 >= z0) {
-                i1 = 1;
-                j1 = 0;
-                k1 = 0;
-                i2 = 1;
-                j2 = 1;
-                k2 = 0;
-            } // X Y Z order
-            else if (x0 >= z0) {
-                i1 = 1;
-                j1 = 0;
-                k1 = 0;
-                i2 = 1;
-                j2 = 0;
-                k2 = 1;
-            } // X Z Y order
-            else {
-                i1 = 0;
-                j1 = 0;
-                k1 = 1;
-                i2 = 1;
-                j2 = 0;
-                k2 = 1;
-            } // Z X Y order
-        }
-        else { // x0<y0
-            if (y0 < z0) {
-                i1 = 0;
-                j1 = 0;
-                k1 = 1;
-                i2 = 0;
-                j2 = 1;
-                k2 = 1;
-            } // Z Y X order
-            else if (x0 < z0) {
-                i1 = 0;
-                j1 = 1;
-                k1 = 0;
-                i2 = 0;
-                j2 = 1;
-                k2 = 1;
-            } // Y Z X order
-            else {
-                i1 = 0;
-                j1 = 1;
-                k1 = 0;
-                i2 = 1;
-                j2 = 1;
-                k2 = 0;
-            } // Y X Z order
-        }
-        // A step of (1,0,0) in (i,j,k) means a step of (1-c,-c,-c) in (x,y,z),
-        // a step of (0,1,0) in (i,j,k) means a step of (-c,1-c,-c) in (x,y,z), and
-        // a step of (0,0,1) in (i,j,k) means a step of (-c,-c,1-c) in (x,y,z), where
-        // c = 1/6.
-        var x1 = x0 - i1 + G3; // Offsets for second corner in (x,y,z) coords
-        var y1 = y0 - j1 + G3;
-        var z1 = z0 - k1 + G3;
-        var x2 = x0 - i2 + 2.0 * G3; // Offsets for third corner in (x,y,z) coords
-        var y2 = y0 - j2 + 2.0 * G3;
-        var z2 = z0 - k2 + 2.0 * G3;
-        var x3 = x0 - 1.0 + 3.0 * G3; // Offsets for last corner in (x,y,z) coords
-        var y3 = y0 - 1.0 + 3.0 * G3;
-        var z3 = z0 - 1.0 + 3.0 * G3;
-        // Work out the hashed gradient indices of the four simplex corners
-        var ii = i & 255;
-        var jj = j & 255;
-        var kk = k & 255;
-        // Calculate the contribution from the four corners
-        var t0 = 0.6 - x0 * x0 - y0 * y0 - z0 * z0;
-        if (t0 < 0) n0 = 0.0;
-        else {
-            var gi0 = permMod12[ii + perm[jj + perm[kk]]] * 3;
-            t0 *= t0;
-            n0 = t0 * t0 * (grad3[gi0] * x0 + grad3[gi0 + 1] * y0 + grad3[gi0 + 2] * z0);
-        }
-        var t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1;
-        if (t1 < 0) n1 = 0.0;
-        else {
-            var gi1 = permMod12[ii + i1 + perm[jj + j1 + perm[kk + k1]]] * 3;
-            t1 *= t1;
-            n1 = t1 * t1 * (grad3[gi1] * x1 + grad3[gi1 + 1] * y1 + grad3[gi1 + 2] * z1);
-        }
-        var t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2;
-        if (t2 < 0) n2 = 0.0;
-        else {
-            var gi2 = permMod12[ii + i2 + perm[jj + j2 + perm[kk + k2]]] * 3;
-            t2 *= t2;
-            n2 = t2 * t2 * (grad3[gi2] * x2 + grad3[gi2 + 1] * y2 + grad3[gi2 + 2] * z2);
-        }
-        var t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3;
-        if (t3 < 0) n3 = 0.0;
-        else {
-            var gi3 = permMod12[ii + 1 + perm[jj + 1 + perm[kk + 1]]] * 3;
-            t3 *= t3;
-            n3 = t3 * t3 * (grad3[gi3] * x3 + grad3[gi3 + 1] * y3 + grad3[gi3 + 2] * z3);
-        }
-        // Add contributions from each corner to get the final noise value.
-        // The result is scaled to stay just inside [-1,1]
-        return 32.0 * (n0 + n1 + n2 + n3);
-    },
-    // 4D simplex noise, better simplex rank ordering method 2012-03-09
-    noise4D: function (x, y, z, w) {
-        var permMod12 = this.permMod12,
-            perm = this.perm,
-            grad4 = this.grad4;
-
-        var n0, n1, n2, n3, n4; // Noise contributions from the five corners
-        // Skew the (x,y,z,w) space to determine which cell of 24 simplices we're in
-        var s = (x + y + z + w) * F4; // Factor for 4D skewing
-        var i = Math.floor(x + s);
-        var j = Math.floor(y + s);
-        var k = Math.floor(z + s);
-        var l = Math.floor(w + s);
-        var t = (i + j + k + l) * G4; // Factor for 4D unskewing
-        var X0 = i - t; // Unskew the cell origin back to (x,y,z,w) space
-        var Y0 = j - t;
-        var Z0 = k - t;
-        var W0 = l - t;
-        var x0 = x - X0; // The x,y,z,w distances from the cell origin
-        var y0 = y - Y0;
-        var z0 = z - Z0;
-        var w0 = w - W0;
-        // For the 4D case, the simplex is a 4D shape I won't even try to describe.
-        // To find out which of the 24 possible simplices we're in, we need to
-        // determine the magnitude ordering of x0, y0, z0 and w0.
-        // Six pair-wise comparisons are performed between each possible pair
-        // of the four coordinates, and the results are used to rank the numbers.
-        var rankx = 0;
-        var ranky = 0;
-        var rankz = 0;
-        var rankw = 0;
-        if (x0 > y0) rankx++;
-        else ranky++;
-        if (x0 > z0) rankx++;
-        else rankz++;
-        if (x0 > w0) rankx++;
-        else rankw++;
-        if (y0 > z0) ranky++;
-        else rankz++;
-        if (y0 > w0) ranky++;
-        else rankw++;
-        if (z0 > w0) rankz++;
-        else rankw++;
-        var i1, j1, k1, l1; // The integer offsets for the second simplex corner
-        var i2, j2, k2, l2; // The integer offsets for the third simplex corner
-        var i3, j3, k3, l3; // The integer offsets for the fourth simplex corner
-        // simplex[c] is a 4-vector with the numbers 0, 1, 2 and 3 in some order.
-        // Many values of c will never occur, since e.g. x>y>z>w makes x<z, y<w and x<w
-        // impossible. Only the 24 indices which have non-zero entries make any sense.
-        // We use a thresholding to set the coordinates in turn from the largest magnitude.
-        // Rank 3 denotes the largest coordinate.
-        i1 = rankx >= 3 ? 1 : 0;
-        j1 = ranky >= 3 ? 1 : 0;
-        k1 = rankz >= 3 ? 1 : 0;
-        l1 = rankw >= 3 ? 1 : 0;
-        // Rank 2 denotes the second largest coordinate.
-        i2 = rankx >= 2 ? 1 : 0;
-        j2 = ranky >= 2 ? 1 : 0;
-        k2 = rankz >= 2 ? 1 : 0;
-        l2 = rankw >= 2 ? 1 : 0;
-        // Rank 1 denotes the second smallest coordinate.
-        i3 = rankx >= 1 ? 1 : 0;
-        j3 = ranky >= 1 ? 1 : 0;
-        k3 = rankz >= 1 ? 1 : 0;
-        l3 = rankw >= 1 ? 1 : 0;
-        // The fifth corner has all coordinate offsets = 1, so no need to compute that.
-        var x1 = x0 - i1 + G4; // Offsets for second corner in (x,y,z,w) coords
-        var y1 = y0 - j1 + G4;
-        var z1 = z0 - k1 + G4;
-        var w1 = w0 - l1 + G4;
-        var x2 = x0 - i2 + 2.0 * G4; // Offsets for third corner in (x,y,z,w) coords
-        var y2 = y0 - j2 + 2.0 * G4;
-        var z2 = z0 - k2 + 2.0 * G4;
-        var w2 = w0 - l2 + 2.0 * G4;
-        var x3 = x0 - i3 + 3.0 * G4; // Offsets for fourth corner in (x,y,z,w) coords
-        var y3 = y0 - j3 + 3.0 * G4;
-        var z3 = z0 - k3 + 3.0 * G4;
-        var w3 = w0 - l3 + 3.0 * G4;
-        var x4 = x0 - 1.0 + 4.0 * G4; // Offsets for last corner in (x,y,z,w) coords
-        var y4 = y0 - 1.0 + 4.0 * G4;
-        var z4 = z0 - 1.0 + 4.0 * G4;
-        var w4 = w0 - 1.0 + 4.0 * G4;
-        // Work out the hashed gradient indices of the five simplex corners
-        var ii = i & 255;
-        var jj = j & 255;
-        var kk = k & 255;
-        var ll = l & 255;
-        // Calculate the contribution from the five corners
-        var t0 = 0.6 - x0 * x0 - y0 * y0 - z0 * z0 - w0 * w0;
-        if (t0 < 0) n0 = 0.0;
-        else {
-            var gi0 = (perm[ii + perm[jj + perm[kk + perm[ll]]]] % 32) * 4;
-            t0 *= t0;
-            n0 = t0 * t0 * (grad4[gi0] * x0 + grad4[gi0 + 1] * y0 + grad4[gi0 + 2] * z0 + grad4[gi0 + 3] * w0);
-        }
-        var t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1 - w1 * w1;
-        if (t1 < 0) n1 = 0.0;
-        else {
-            var gi1 = (perm[ii + i1 + perm[jj + j1 + perm[kk + k1 + perm[ll + l1]]]] % 32) * 4;
-            t1 *= t1;
-            n1 = t1 * t1 * (grad4[gi1] * x1 + grad4[gi1 + 1] * y1 + grad4[gi1 + 2] * z1 + grad4[gi1 + 3] * w1);
-        }
-        var t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2 - w2 * w2;
-        if (t2 < 0) n2 = 0.0;
-        else {
-            var gi2 = (perm[ii + i2 + perm[jj + j2 + perm[kk + k2 + perm[ll + l2]]]] % 32) * 4;
-            t2 *= t2;
-            n2 = t2 * t2 * (grad4[gi2] * x2 + grad4[gi2 + 1] * y2 + grad4[gi2 + 2] * z2 + grad4[gi2 + 3] * w2);
-        }
-        var t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3 - w3 * w3;
-        if (t3 < 0) n3 = 0.0;
-        else {
-            var gi3 = (perm[ii + i3 + perm[jj + j3 + perm[kk + k3 + perm[ll + l3]]]] % 32) * 4;
-            t3 *= t3;
-            n3 = t3 * t3 * (grad4[gi3] * x3 + grad4[gi3 + 1] * y3 + grad4[gi3 + 2] * z3 + grad4[gi3 + 3] * w3);
-        }
-        var t4 = 0.6 - x4 * x4 - y4 * y4 - z4 * z4 - w4 * w4;
-        if (t4 < 0) n4 = 0.0;
-        else {
-            var gi4 = (perm[ii + 1 + perm[jj + 1 + perm[kk + 1 + perm[ll + 1]]]] % 32) * 4;
-            t4 *= t4;
-            n4 = t4 * t4 * (grad4[gi4] * x4 + grad4[gi4 + 1] * y4 + grad4[gi4 + 2] * z4 + grad4[gi4 + 3] * w4);
-        }
-        // Sum up and scale the result to cover the range [-1,1]
-        return 27.0 * (n0 + n1 + n2 + n3 + n4);
-    }
-
-
-};
-
-// amd
-if (typeof define !== 'undefined' && define.amd) define(function(){return SimplexNoise;});
-// browser
-else if (typeof window !== 'undefined') window.SimplexNoise = SimplexNoise;
-//common js
-if (typeof exports !== 'undefined') exports.SimplexNoise = SimplexNoise;
-// nodejs
-if (typeof module !== 'undefined') {
-    module.exports = SimplexNoise;
-}
-
-})();
-
-},{}],56:[function(require,module,exports){
-(function (global){
-
-var EventEmitter = require('events').EventEmitter;
-var inherits = require('inherits');
-
-module.exports = function(fn) {
-
-  inherits(fn, EventEmitter);
-
-  fn.prototype.addEventListener = function(ev, cb) {
-    this.on(ev,cb);
-  };
-
-  var self = new fn();
-
-  global.postMessage = // unfortunately global for worker (no namespaces?)
-  self.postMessage = function(msg) {
-    self.emit('message', {data:msg});
-  };
-
-  return self;
-};
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"events":66,"inherits":57}],57:[function(require,module,exports){
-module.exports=require(8)
-},{}],58:[function(require,module,exports){
-module.exports = function (opts) {
-    if (!opts) opts = {};
-    if (opts.bark === undefined) opts.bark = 1;
-    if (opts.leaves === undefined) opts.leaves = 2;
-    if (opts.random == undefined) opts.random = function() { return Math.random(); };
-    if (!opts.height) opts.height = opts.random() * 16 + 4;
-    if (opts.base === undefined) opts.base = opts.height / 3;
-    if (opts.radius === undefined) opts.radius = opts.base;
-    if (opts.treeType === undefined) opts.treeType = 'subspace';
-    if (opts.position === undefined) throw "voxel-trees requires position option";
-    if (opts.setBlock === undefined) throw "voxel-trees requires setBlock option";
-
-    var set = opts.setBlock;
-
-    var generators = {
-    subspace: function() {
-        var around = [
-        [ 0, 1 ], [ 0, -1 ],
-        [ 1, 1 ], [ 1, 0 ], [ 1, -1 ],
-        [ -1, 1 ], [ -1, 0 ], [ -1, -1 ]
-        ];
-        for (var y = 0; y < opts.height - 1; y++) {
-            var pos = {x:opts.position.x, y:opts.position.y, z:opts.position.z};
-            pos.y += y
-            if (set(pos, opts.bark)) break;
-            if (y < opts.base) continue;
-            around.forEach(function (offset) {
-                if (opts.random() > 0.5) return;
-                var x = offset[0]
-                var z = offset[1]
-                pos.x += x;
-                pos.z += z;
-                set(pos, opts.leaves);
-                pos.x -= x;
-                pos.z -= z;
-            });
-        }
-    },
-
-    guybrush: function() {
-        var sphere = function(x,y,z, r) {
-            return x*x + y*y + z*z <= r*r;
-        }
-        for (var y = 0; y < opts.height - 1; y++) {
-            var pos = {x:opts.position.x, y:opts.position.y, z:opts.position.z};
-            pos.y += y;
-            if (set(pos, opts.bark)) break;
-        }
-        var radius = opts.radius;
-        for (var xstep = -radius; xstep <= radius; xstep++) {
-            for (var ystep = -radius; ystep <= radius; ystep++) {
-                for (var zstep = -radius; zstep <= radius; zstep++) {
-                    if (sphere(xstep,ystep,zstep, radius)) {
-                        var leafpos = {
-                            x: pos.x + xstep,
-                            y: pos.y + ystep,
-                            z: pos.z + zstep
-                        }
-                        set(leafpos, opts.leaves);
-                    }
-                }
-            }
-        }
-    },
-
-    fractal: function() {
-        function drawAxiom(axiom, angle, unitsize, units) {
-            var posstack = [];
-            
-            var penangle = 0;
-            var pos = {x:opts.position.x, y:opts.position.y, z:opts.position.z};
-            pos.y += unitsize * 30;
-            function moveForward() {
-                var ryaw = penangle * Math.PI/180;
-                for (var i = 0; i < units; i++) {
-                    pos.y += unitsize * Math.cos(ryaw);
-                    pos.z += unitsize * Math.sin(ryaw);
-                    set(pos,opts.leaves);
-                }
-            }
-
-            function setPoint() {
-                set(pos, opts.bark);
-            }
-            function setMaterial(value) {
-                mindex = value;
-            }
-            function yaw(angle) {
-                penangle += angle;
-            }
-            function pitch(angle) {
-                //turtle.pitch += angle;
-            }
-            function roll(angle) {
-                //turtle.roll += angle;
-            }
-            function PushState() {
-                //penstack.push(turtle);
-                posstack.push(pos);
-            }
-            function PopState() {
-              //  turtle = penstack.pop();
-                pos = posstack.pop();
-            }
-            
-            //F  - move forward one unit with the pen down
-            //G  - move forward one unit with the pen up
-            //#  - Changes draw medium.
-
-            // +  - yaw the turtle right by angle parameter
-            // -  - yaw the turtle left by angle parameter
-            // &  - pitch the turtle down by angle parameter
-            // ^  - pitch the turtle up by angle parameter
-            // /  - roll the turtle to the right by angle parameter
-            // *  - roll the turtle to the left by angle parameter
-            // [  - save in stack current state info
-            // ]  - recover from stack state info
-            for (var i = 0; i < axiom.length; i++) {
-                var c = axiom.charAt(i);
-                switch(c) {
-                    case 'F':
-                        moveForward();
-                        setPoint();
-                        break;
-                    case '+':
-                        yaw(+angle);
-                        break;
-                    case '-':
-                        yaw(-angle);
-                        break;
-                    case '&':
-                        pitch(+angle);
-                        break;
-                    case '^':
-                        pitch(-angle);
-                        break;
-                    case '/':
-                        roll(+angle);
-                        break;
-                    case '*':
-                        roll(-angle);
-                        break;
-                    case 'G':
-                        moveForward();
-                        break;
-                    case '[':
-                        PushState();
-                        break;
-                    case ']':
-                        PopState();
-                        break;
-                    case '0':
-                        setMaterial(0);
-                        break;
-                    case '1':
-                        setMaterial(1);
-                        break;
-                    case '2':
-                        setMaterial(2);
-                        break;
-                    case '3':
-                        setMaterial(3);
-                        break;
-
-                }
-            }
-        }
-
-        var axiom = "FX";
-        var rules = [ ["X", "X+YF+"], ["Y", "-FX-Y"]];
-        axiom = applyRules(axiom,rules);
-        axiom = applyRules(axiom,rules);
-        axiom = applyRules(axiom,rules);
-        axiom = applyRules(axiom,rules);
-        axiom = applyRules(axiom,rules);
-        axiom = applyRules(axiom,rules);
-        drawAxiom(axiom, 90, 1, 5);
-    }
-    };
-  
-    if (!generators[opts.treeType]) throw 'voxel-trees invalid treeType: ' + opts.treeType;
-
-    generators[opts.treeType]();
-};
-
-function regexRules(rules) {
-    var regexrule = '';
-    rules.forEach(function (rule) {
-        if (regexrule != '') {
-            regexrule = regexrule+ '|' ;
-        }
-        regexrule = regexrule+rule[0];
-    });
-    return new RegExp(regexrule, "g");
-}
-
-function applyRules(axiom, rules) {
-    function matchRule(match)
-    {
-        for (var i=0;i<rules.length;i++)
-        { 
-            if (rules[i][0] == match) return rules[i][1];
-        }
-        return '';
-    }
-    return axiom.replace(regexRules(rules), matchRule);
-}
-
-},{}],59:[function(require,module,exports){
-var bundleFn = arguments[3];
-var sources = arguments[4];
-var cache = arguments[5];
-
-var stringify = JSON.stringify;
-
-module.exports = function (fn) {
-    var keys = [];
-    var wkey;
-    var cacheKeys = Object.keys(cache);
-    
-    for (var i = 0, l = cacheKeys.length; i < l; i++) {
-        var key = cacheKeys[i];
-        if (cache[key].exports === fn) {
-            wkey = key;
-            break;
-        }
-    }
-    
-    if (!wkey) {
-        wkey = Math.floor(Math.pow(16, 8) * Math.random()).toString(16);
-        var wcache = {};
-        for (var i = 0, l = cacheKeys.length; i < l; i++) {
-            var key = cacheKeys[i];
-            wcache[key] = key;
-        }
-        sources[wkey] = [
-            Function(['require','module','exports'], '(' + fn + ')(self)'),
-            wcache
-        ];
-    }
-    var skey = Math.floor(Math.pow(16, 8) * Math.random()).toString(16);
-    
-    var scache = {}; scache[wkey] = wkey;
-    sources[skey] = [
-        Function(['require'],'require(' + stringify(wkey) + ')(self)'),
-        scache
-    ];
-    
-    var src = '(' + bundleFn + ')({'
-        + Object.keys(sources).map(function (key) {
-            return stringify(key) + ':['
-                + sources[key][0]
-                + ',' + stringify(sources[key][1]) + ']'
-            ;
-        }).join(',')
-        + '},{},[' + stringify(skey) + '])'
-    ;
-    return new Worker(window.URL.createObjectURL(
-        new Blob([src], { type: 'text/javascript' })
-    ));
-};
-
-},{}],60:[function(require,module,exports){
-//'use strict'; // TODO
-
-var ever = require('ever');
-var createTree = require('voxel-trees');
-var SimplexNoise = require('simplex-noise');
-var Alea = require('alea');
-var ndarray = require('ndarray');
-var ops = require('ndarray-ops');
-
-function ChunkGenerator(worker, opts) {
-  this.worker = worker;
-  this.opts = opts;
-
-  var random = this.random = new Alea(this.opts.seed);
-
-  var randomHills = new Alea(random());
-  var randomRoughness = new Alea(random());
-  var randomTrees = new Alea(random());
-
-  this.noiseHills = new SimplexNoise(function() { return randomHills(); });
-  this.noiseRoughness = new SimplexNoise(function() { return randomRoughness(); });
-  this.noiseTrees = new SimplexNoise(function() { return randomTrees(); });
-
-  this.populators = [];
-
-  // TODO: maybe run ore loops once, _then_ choose ore type? for efficiency
-  this.registerPopulator(this.populateCoalOre.bind(this));
-  this.registerPopulator(this.populateIronOre.bind(this));
-
-  return this;
-};
-
-// calculate terrain height based on perlin noise 
-// see @maxogden's voxel-perlin-terrain https://github.com/maxogden/voxel-perlin-terrain
-ChunkGenerator.prototype.generateHeightMap = function(position, width) {
-  var startX = position[0] * width;
-  var startY = position[1] * width;
-  var startZ = position[2] * width;
-  var heightMap = new Uint8Array(width * width);
-
-  for (var x = startX; x < startX + width; x++) {
-    for (var z = startZ; z < startZ + width; z++) {
-
-      // large scale ruggedness of terrain
-      var roughness = this.noiseRoughness.noise2D(x / this.opts.roughnessScale, z / this.opts.roughnessScale);
-      roughnessTerm = Math.floor(Math.pow(scale(roughness, -1, 1, 0, 2), 5));
-
-      // smaller scale local hills
-      var n = this.noiseHills.noise2D(x / this.opts.hillScale, z / this.opts.hillScale);
-      var y = ~~scale(n, -1, 1, this.opts.crustLower, this.opts.crustUpper + roughnessTerm);
-      if (roughnessTerm < 1) y = this.opts.crustLower; // completely flat ("plains")
-      //y = roughnessFactor; // to debug roughness map
-
-      if (y === this.crustLower || startY < y && y < startY + width) {
-        var xidx = Math.abs((width + x % width) % width);
-        var yidx = Math.abs((width + y % width) % width);
-        var zidx = Math.abs((width + z % width) % width);
-        var idx = xidx + yidx * width + zidx * width * width;
-        heightMap[xidx + zidx * width] = yidx;
-      }
-    }
-  }
-
-  return heightMap;
-};
-
-function scale( x, fromLow, fromHigh, toLow, toHigh ) {
-  return ( x - fromLow ) * ( toHigh - toLow ) / ( fromHigh - fromLow ) + toLow;
-}
-
-ChunkGenerator.prototype.registerPopulator = function(f) {
-  this.populators.push(f);
-};
-
-
-// Add per-chunk features
-// Mutate voxels array
-ChunkGenerator.prototype.populateChunk = function(random, chunkX, chunkY, chunkZ, chunkHeightMap, voxels) {
-  // populate chunk with features that don't need to cross chunks TODO: customizable, plugin-based
-  //console.log('populating chunk '+[chunkX,chunkY,chunkZ,voxels].join(' '));
-
-  for (var i = 0; i < this.populators.length; i += 1) {
-    var populate = this.populators[i];
-
-    populate(random, chunkX, chunkY, chunkZ, chunkHeightMap, voxels);
-  }
-};
-
-ChunkGenerator.prototype.populateOreClusters = function(random, chunkX, chunkY, chunkZ, chunkHeightMap, voxels, clustersPerChunk, clusterSize, replaceMaterial, oreMaterial) {
-  // ores
-  var width = this.opts.chunkSize;
-  var nextInt = function(max) {
-    return Math.round(random() * max);
-  };
-
-  for (var i = 0; i < clustersPerChunk; i += 1) {
-    var x = nextInt(width - 1);
-    var y = nextInt(width - 1);
-    var z = nextInt(width - 1);
-
-    // replace stone with ore
-    for (var j = 0; j < clusterSize; j += 1) {
-      if (voxels.get(x, y, z) === replaceMaterial) {
-        voxels.set(x, y, z, oreMaterial);
-        //console.log('ore gen at '+[chunkX * width + x, chunkY * width + y, chunkZ * width + z].join(' '));
-      }
-
-      // TODO: better clusters, and other distributions - see http://www.minecraftforum.net/topic/1107057-146v2-custom-ore-generation-updated-jan-5th/ 
-      // and http://customoregen.shoutwiki.com/wiki/Category:Distributions http://www.minecraftforge.net/wiki/Tutorials/Ore_Generation
-      // 'elliptic?'
-   
-      // currently, randomly branches, but might loop on itself
-      x += nextInt(2) - 1
-      y += nextInt(2) - 1
-
-      // wrap TODO: truncate instead?
-      x %= width - 1;
-      y %= width - 1;
-    }
-  }
-};
-
-// TODO: refactor, and make more generic enough that external plugins can register
-
-ChunkGenerator.prototype.populateCoalOre = function(random, chunkX, chunkY, chunkZ, chunkHeightMap, voxels) {
-  var nextInt = function(max) {
-    return Math.round(random() * max);
-  };
-
-  var clustersPerChunk = 3;
-  var clusterSize = nextInt(100) + 50;
-  var replaceMaterial = this.opts.materials.stone;
-
-  this.populateOreClusters(random, chunkX, chunkY, chunkZ, chunkHeightMap, voxels, clustersPerChunk, clusterSize, replaceMaterial, this.opts.materials.oreCoal);
-};
-
-ChunkGenerator.prototype.populateIronOre = function(random, chunkX, chunkY, chunkZ, chunkHeightMap, voxels) {
-  var nextInt = function(max) {
-    return Math.round(random() * max);
-  };
-
-  var clustersPerChunk = 2;
-  var clusterSize = nextInt(30) + 10;
-  var replaceMaterial = this.opts.materials.stone;
-
-  this.populateOreClusters(random, chunkX, chunkY, chunkZ, chunkHeightMap, voxels, clustersPerChunk, clusterSize, replaceMaterial, this.opts.materials.oreIron);
-};
-
-
-// Add possibly-cross-chunk features, with global world coordinates (slower)
-// Return list of changes to voxels to make
-ChunkGenerator.prototype.decorate = function(random, chunkX, chunkY, chunkZ, chunkHeightMap) {
-  var changes = [];
-  var width = this.opts.chunkSize;
-  var startX = chunkX * width;
-  var startY = chunkY * width;
-  var startZ = chunkZ * width;
-
-  // TODO: iterate list of 'decorators'
-
-  // "craters" (TODO: fill with water to make lakes)
-  if (random() < 0.30) {
-    var radius = ~~(random() * 10);
-    for (var dx = -radius; dx <= radius; ++dx) {
-      for (var dy = -radius; dy <= radius; ++dy) {
-        for (var dz = -radius; dz <= radius; ++dz) {
-          var distance = Math.sqrt(dx*dx + dy*dy + dz*dz); // TODO: better algorithm
-          if (distance < radius)
-            changes.push([[startX+dx, startY+dy, startZ+dz], 0]);
-        }
-      }
-    }
-    return changes; // don't generate trees on top TODO: smarter - update heightmap maybe
-  }
-
-  // trees
-  if (!this.opts.populateTrees) 
-    return;
-
-  // TODO: large-scale biomes, with higher tree density? forests
-  var treeCount = ~~scale(this.noiseTrees.noise2D(chunkX / this.opts.treesScale, chunkZ / this.opts.treesScale), -1, 1, 0, this.opts.treesMaxDensity);
-
-  for (var i = 0; i < treeCount; ++i) {
-    // scatter randomly around chunk
-    var dx = ~~scale(random(), 0, 1, 0, width - 1);
-    var dz = ~~scale(random(), 0, 1, 0, width - 1);
-
-    // position at top of surface 
-    var dy = chunkHeightMap[dx + dz * width] + 1;
-
-    var n = random();
-    var treeType;
-    if (n < 0.05)
-      treeType = 'guybrush';
-    //else if (n < 0.20)
-    //  treeType = 'fractal';  // too weird
-    else
-      treeType = 'subspace';
-
-    createTree({ 
-      random: random,
-      bark: this.opts.materials.logOak,
-      leaves: this.opts.materials.leavesOak,
-      position: {x:startX + dx, y:startY + dy, z:startZ + dz},
-      treeType: treeType,
-      setBlock: function (pos, value) {
-        changes.push([[pos.x, pos.y, pos.z], value]);
-        return false;  // returning true stops tree
-      }
-    });
-  }
-
-
-  return changes;
-};
-
-ChunkGenerator.prototype.generateChunk = function(pos) {
-  var width = this.opts.chunkSize;
-  var pad = this.opts.chunkPad;
-  var arrayType = {1:Uint8Array, 2:Uint16Array, 4:Uint32Array}[this.opts.arrayElementSize];
-
-  // create underlying array padded 2 voxels on each edge, but also an unpadded view for populating
-  var buffer = new ArrayBuffer((width+pad) * (width+pad) * (width+pad) * this.opts.arrayElementSize);
-  var voxelsPadded = ndarray(new arrayType(buffer), [width+pad, width+pad, width+pad]);
-  var h = pad >> 1;
-  var voxels = voxelsPadded.lo(h,h,h).hi(width,width,width);
-
-  var changes = undefined;
-
-  /* to prove this code truly is running asynchronously
-  var i=0;
-  console.log('lag');
-  while(i<1000000000)
-    i++;
-  console.log('lag done');
-  */
-
-  /* to generate only specific chunks for testing
-  var cstr = pos[0] + ',' + pos[2];
-  var okc = [ 
-"-1,-1",
-"0,0"];
-  if (okc.indexOf(cstr) == -1) return;
-  */
-
-  if (pos[1] === 0) {
-    // ground surface level
-    var heightMap = this.generateHeightMap(pos, width);
-
-    for (var x = 0; x < width; ++x) {
-      for (var z = 0; z < width; ++z) {
-        var y = heightMap[x + z * width];
-
-        //y=1;voxels.set(x,y,z, (pos[0]+pos[2]) & 1 ? this.opts.materials.oreCoal : this.opts.materials.oreIron); continue; // flat checkerboard for testing chunk boundaries
-
-        // dirt with grass on top
-        voxels.set(x,y,z, this.opts.materials.grass);
-        while(y-- > 0)
-          voxels.set(x,y,z, this.opts.materials.dirt);
-
-      }
-    }
-    // features
-    var random = new Alea(pos[0] + pos[1] * width + pos[2] * width * width); // TODO: sufficient?
-    this.populateChunk(random, pos[0], pos[1], pos[2], heightMap, voxels);
-    changes = this.decorate(random, pos[0], pos[1], pos[2], heightMap); // TODO: should run in another worker, to not block terrain gen?
-  } else if (pos[1] > 0) {
-    // empty space above ground
-    // TODO: clouds, other above-ground floating structures? https://github.com/deathcap/voxel-land/issues/6
-  } else {
-    //this.opts.materials.stone=0; // debug ore gen
-    // below ground - starts out as all stone
-    ops.assigns(voxels, this.opts.materials.stone);
-
-    var random = new Alea(pos[0] + pos[1] * width + pos[2] * width * width); // TODO: refactor with above
-    this.populateChunk(random, pos[0], pos[1], pos[2], null, voxels);
-  }
-
-  //if (pos.join('|') !== '0|0|0' && pos.join('|') !== '0|-1|0') return; // only a few chunks for testing
-
-  this.worker.postMessage({cmd: 'chunkGenerated', position: pos, voxelBuffer: buffer}, [buffer]);
-
-  // add additional decoration edits, which may span multiple loaded chunks
-  if (changes) this.worker.postMessage({cmd: 'decorate', changes:changes}); // TODO: use transferrable?
-};
-
-module.exports = function() {
-  var gen;
-  ever(this).on('message', function(ev) {
-
-    if (ev.data.cmd === 'configure') {
-      gen = new ChunkGenerator(this, ev.data.opts);
-    } else if (ev.data.cmd === 'generateChunk') {
-      if (gen === undefined) throw new Error('voxel-land web worker error: received "generateChunk" before "configure"');
-      gen.generateChunk(ev.data.pos);
-    }
-  });
-};
-
-
-
-},{"alea":44,"ever":45,"ndarray":53,"ndarray-ops":48,"simplex-noise":55,"voxel-trees":58}],61:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 var skin = require('minecraft-skin');
 
 module.exports = function (game) {
@@ -47013,7 +44341,7 @@ function parseXYZ (x, y, z) {
     return { x: Number(x), y: Number(y), z: Number(z) };
 }
 
-},{"minecraft-skin":62}],62:[function(require,module,exports){
+},{"minecraft-skin":43}],43:[function(require,module,exports){
 var THREE
 
 module.exports = function(three, image, sizeRatio) {
@@ -47385,7 +44713,420 @@ Skin.prototype.createPlayerObject = function(scene) {
   playerGroup.scale = this.scale
   return playerGroup
 }
-},{}],63:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
+function Snow(opts) {
+  var self = this;
+  if (!(this instanceof Snow)) return new Snow(opts || {});
+  if (opts.THREE) opts = {game:opts};
+  this.game = opts.game;
+  this.speed = opts.speed || 0.1;
+  this.drift = opts.drift || 1;
+  this.particles = [];
+  if (opts.count != null || opts.size != null || opts.material != null) {
+    this.game.scene.add(this.add(
+      opts.count || null, opts.size || null, opts.material || null
+    ));
+  }
+}
+module.exports = Snow;
+
+Snow.prototype.add = function(count, size, material) {
+  var game = this.game;
+  count = count || 1000;
+  size  = size  || 20;
+  material = material || new game.THREE.ParticleBasicMaterial({
+    color: 0xffffff,
+    size: 1
+  });
+
+  var half = size / 2;
+
+  var geom = new game.THREE.Geometry();
+  geom.boundingBox = new game.THREE.Box3(
+    new game.THREE.Vector3(-half, -half, -half),
+    new game.THREE.Vector3(half, half, half)
+  );
+
+  for (var i = 0; i < count; i++) {
+    geom.vertices.push(new game.THREE.Vector3(
+      rand(-half, half), rand(-half, half), rand(-half, half)
+    ));
+  }
+
+  var particles = new game.THREE.ParticleSystem(geom, material);
+  this.particles.push(particles);
+
+  return particles;
+};
+
+Snow.prototype.tick = function() {
+  var self = this;
+  var target = self.game.controls.target();
+  self.particles.forEach(function(particle) {
+    if (target == null) return;
+
+    particle.position.copy(target.position);
+
+    var bounds = particle.geometry.boundingBox;
+    var count = particle.geometry.vertices.length;
+    var a = target.yaw.rotation.y;
+    var x = Math.floor(target.velocity.x * 1000) / 50;
+    var y = Math.floor(target.velocity.y * 1000) / 50;
+    var z = Math.floor(target.velocity.z * 1000) / 50;
+    // todo: fix this, should handle 2 directions at the same time
+    var r = x !== 0 ? x * 0.5 : z !== 0 ? z : 0;
+    if (x !== 0) a += Math.PI / 2;
+    while (count--) {
+      var p = particle.geometry.vertices[count];
+      if (p.y < bounds.min.y) p.y = bounds.max.y;
+      p.y -= Math.random() * (self.speed + y / 2);
+      ['x', 'z'].forEach(function(x) {
+        if (p[x] > bounds.max[x] || p[x] < bounds.min[x]) {
+         p[x] = rand(bounds.min[x], bounds.max[x]);
+        }
+      });
+      p.x += Math.sin(a) * -r * self.drift;
+      p.z += Math.cos(a) * -r * self.drift;
+    }
+    particle.geometry.verticesNeedUpdate = true;
+  });
+};
+
+function rand(min, max) { return Math.random() * (max - min) + min; }
+
+},{}],45:[function(require,module,exports){
+arguments[4][36][0].apply(exports,arguments)
+},{"events":57,"inherits":52}],46:[function(require,module,exports){
+var chunker = require('./chunker')
+
+module.exports = function(opts) {
+  if (!opts.generateVoxelChunk) opts.generateVoxelChunk = function(low, high) {
+    return generate(low, high, module.exports.generator['Valley'])
+  }
+  return chunker(opts)
+}
+
+module.exports.meshers = {
+  culled: require('./meshers/culled').mesher,
+  greedy: require('./meshers/greedy').mesher,
+  transgreedy: require('./meshers/transgreedy').mesher,
+  monotone: require('./meshers/monotone').mesher,
+  stupid: require('./meshers/stupid').mesher
+}
+
+module.exports.Chunker = chunker.Chunker
+module.exports.geometry = {}
+module.exports.generator = {}
+module.exports.generate = generate
+
+// from https://github.com/mikolalysenko/mikolalysenko.github.com/blob/master/MinecraftMeshes2/js/testdata.js#L4
+function generate(l, h, f, game) {
+  var d = [ h[0]-l[0], h[1]-l[1], h[2]-l[2] ]
+  var v = new Int8Array(d[0]*d[1]*d[2])
+  var n = 0
+  for(var k=l[2]; k<h[2]; ++k)
+  for(var j=l[1]; j<h[1]; ++j)
+  for(var i=l[0]; i<h[0]; ++i, ++n) {
+    v[n] = f(i,j,k,n,game)
+  }
+  return {voxels:v, dims:d}
+}
+
+// shape and terrain generator functions
+module.exports.generator['Sphere'] = function(i,j,k) {
+  return i*i+j*j+k*k <= 16*16 ? 1 : 0
+}
+
+module.exports.generator['Noise'] = function(i,j,k) {
+  return Math.random() < 0.1 ? Math.random() * 0xffffff : 0;
+}
+
+module.exports.generator['Dense Noise'] = function(i,j,k) {
+  return Math.round(Math.random() * 0xffffff);
+}
+
+module.exports.generator['Checker'] = function(i,j,k) {
+  return !!((i+j+k)&1) ? (((i^j^k)&2) ? 1 : 0xffffff) : 0;
+}
+
+module.exports.generator['Hill'] = function(i,j,k) {
+  return j <= 16 * Math.exp(-(i*i + k*k) / 64) ? 1 : 0;
+}
+
+module.exports.generator['Valley'] = function(i,j,k) {
+  return j <= (i*i + k*k) * 31 / (32*32*2) + 1 ? 1 : 0;
+}
+
+module.exports.generator['Hilly Terrain'] = function(i,j,k) {
+  var h0 = 3.0 * Math.sin(Math.PI * i / 12.0 - Math.PI * k * 0.1) + 27;    
+  if(j > h0+1) {
+    return 0;
+  }
+  if(h0 <= j) {
+    return 1;
+  }
+  var h1 = 2.0 * Math.sin(Math.PI * i * 0.25 - Math.PI * k * 0.3) + 20;
+  if(h1 <= j) {
+    return 2;
+  }
+  if(2 < j) {
+    return Math.random() < 0.1 ? 0x222222 : 0xaaaaaa;
+  }
+  return 3;
+}
+
+module.exports.scale = function ( x, fromLow, fromHigh, toLow, toHigh ) {
+  return ( x - fromLow ) * ( toHigh - toLow ) / ( fromHigh - fromLow ) + toLow
+}
+
+// convenience function that uses the above functions to prebake some simple voxel geometries
+module.exports.generateExamples = function() {
+  return {
+    'Sphere': generate([-16,-16,-16], [16,16,16], module.exports.generator['Sphere']),
+    'Noise': generate([0,0,0], [16,16,16], module.exports.generator['Noise']),
+    'Dense Noise': generate([0,0,0], [16,16,16], module.exports.generator['Dense Noise']),
+    'Checker': generate([0,0,0], [8,8,8], module.exports.generator['Checker']),
+    'Hill': generate([-16, 0, -16], [16,16,16], module.exports.generator['Hill']),
+    'Valley': generate([0,0,0], [32,32,32], module.exports.generator['Valley']),
+    'Hilly Terrain': generate([0, 0, 0], [32,32,32], module.exports.generator['Hilly Terrain'])
+  }
+}
+
+
+},{"./chunker":45,"./meshers/culled":47,"./meshers/greedy":48,"./meshers/monotone":49,"./meshers/stupid":50,"./meshers/transgreedy":51}],47:[function(require,module,exports){
+module.exports=require(38)
+},{}],48:[function(require,module,exports){
+module.exports=require(39)
+},{}],49:[function(require,module,exports){
+module.exports=require(40)
+},{}],50:[function(require,module,exports){
+module.exports=require(41)
+},{}],51:[function(require,module,exports){
+var GreedyMesh = (function greedyLoader() {
+    
+// contains all forward faces (in terms of scan direction)
+var mask = new Int32Array(4096);
+// and all backwards faces. needed when there are two transparent blocks
+// next to each other.
+var invMask = new Int32Array(4096);
+
+// setting 16th bit if transparent
+var kTransparentMask    = 0x8000;
+var kNoFlagsMask        = 0x7FFF;
+var kTransparentTypes   = [];
+
+kTransparentTypes[16] = true
+
+function isTransparent(v) {
+  return (v & kTransparentMask) === kTransparentMask;
+}
+
+function removeFlags(v) {
+  return (v & kNoFlagsMask);
+}
+
+return function ohSoGreedyMesher(volume, dims, mesherExtraData) {
+  var vertices = [], faces = []
+    , dimsX = dims[0]
+    , dimsY = dims[1]
+    , dimsXY = dimsX * dimsY;
+
+  var tVertices = [], tFaces = []
+
+  var transparentTypes = mesherExtraData ? (mesherExtraData.transparentTypes || {}) : {};
+  var getType = function(voxels, offset) {
+    var type = voxels[offset];
+    return type | (type in transparentTypes ? kTransparentMask : 0);
+  }
+
+
+  //Sweep over 3-axes
+  for(var d=0; d<3; ++d) {
+    var i, j, k, l, w, W, h, n, c
+      , u = (d+1)%3
+      , v = (d+2)%3
+      , x = [0,0,0]
+      , q = [0,0,0]
+      , du = [0,0,0]
+      , dv = [0,0,0]
+      , dimsD = dims[d]
+      , dimsU = dims[u]
+      , dimsV = dims[v]
+      , qdimsX, qdimsXY
+      , xd
+
+    if (mask.length < dimsU * dimsV) {
+      mask = new Int32Array(dimsU * dimsV);
+      invMask = new Int32Array(dimsU * dimsV);
+    }
+
+    q[d] =  1;
+    x[d] = -1;
+
+    qdimsX  = dimsX  * q[1]
+    qdimsXY = dimsXY * q[2]
+
+    // Compute mask
+    while (x[d] < dimsD) {
+      xd = x[d]
+      n = 0;
+
+      for(x[v] = 0; x[v] < dimsV; ++x[v]) {
+        for(x[u] = 0; x[u] < dimsU; ++x[u], ++n) {
+          // Modified to read through getType()
+          var a = xd >= 0      && getType(volume, x[0]      + dimsX * x[1]          + dimsXY * x[2]          )
+            , b = xd < dimsD-1 && getType(volume, x[0]+q[0] + dimsX * x[1] + qdimsX + dimsXY * x[2] + qdimsXY)
+
+          // both are transparent, add to both directions
+          if (isTransparent(a) && isTransparent(b)) {
+            mask[n] = a;
+            invMask[n] = b;
+          // if a is solid and b is not there or transparent
+          } else if (a && (!b || isTransparent(b))) {
+            mask[n] = a;
+            invMask[n] = 0
+          // if b is solid and a is not there or transparent
+          } else if (b && (!a || isTransparent(a))) {
+            mask[n] = 0
+            invMask[n] = b;
+          // dont draw this face
+          } else {
+            mask[n] = 0
+            invMask[n] = 0
+          }
+        }
+      }
+
+      ++x[d];
+
+      // Generate mesh for mask using lexicographic ordering
+      function generateMesh(mask, dimsV, dimsU, vertices, faces, clockwise) {
+        clockwise = clockwise === undefined ? true : clockwise;
+        var n, j, i, c, w, h, k, du = [0,0,0], dv = [0,0,0];
+        n = 0;
+        for (j=0; j < dimsV; ++j) {
+          for (i=0; i < dimsU; ) {
+            c = mask[n];
+            if (!c) {
+              i++;  n++; continue;
+            }
+
+            //Compute width
+            w = 1;
+            while (c === mask[n+w] && i+w < dimsU) w++;
+
+            //Compute height (this is slightly awkward)
+            for (h=1; j+h < dimsV; ++h) {
+              k = 0;
+              while (k < w && c === mask[n+k+h*dimsU]) k++
+              if (k < w) break;
+            }
+
+            // Add quad
+            // The du/dv arrays are reused/reset
+            // for each iteration.
+            du[d] = 0; dv[d] = 0;
+            x[u]  = i;  x[v] = j;
+
+            if (clockwise) {
+            // if (c > 0) {
+              dv[v] = h; dv[u] = 0;
+              du[u] = w; du[v] = 0;
+            } else {
+              // c = -c;
+              du[v] = h; du[u] = 0;
+              dv[u] = w; dv[v] = 0;
+            }
+            
+            // ## enable code to ensure that transparent faces are last in the list
+            // if (!isTransparent(c)) {
+              var vertex_count = vertices.length;
+              vertices.push([x[0],             x[1],             x[2]            ]);
+              vertices.push([x[0]+du[0],       x[1]+du[1],       x[2]+du[2]      ]);
+              vertices.push([x[0]+du[0]+dv[0], x[1]+du[1]+dv[1], x[2]+du[2]+dv[2]]);
+              vertices.push([x[0]      +dv[0], x[1]      +dv[1], x[2]      +dv[2]]);
+              faces.push([vertex_count, vertex_count+1, vertex_count+2, vertex_count+3, removeFlags(c)]);
+            // } else {
+            //   var vertex_count = tVertices.length;
+            //   tVertices.push([x[0],             x[1],             x[2]            ]);
+            //   tVertices.push([x[0]+du[0],       x[1]+du[1],       x[2]+du[2]      ]);
+            //   tVertices.push([x[0]+du[0]+dv[0], x[1]+du[1]+dv[1], x[2]+du[2]+dv[2]]);
+            //   tVertices.push([x[0]      +dv[0], x[1]      +dv[1], x[2]      +dv[2]]);
+            //   tFaces.push([vertex_count, vertex_count+1, vertex_count+2, vertex_count+3, removeFlags(c)]);
+            // }
+
+            //Zero-out mask
+            W = n + w;
+            for(l=0; l<h; ++l) {
+              for(k=n; k<W; ++k) {
+                mask[k+l*dimsU] = 0;
+              }
+            }
+
+            //Increment counters and continue
+            i += w; n += w;
+          }
+        }
+      }
+      generateMesh(mask, dimsV, dimsU, vertices, faces, true)
+      generateMesh(invMask, dimsV, dimsU, vertices, faces, false)
+    }
+  }
+  
+  // ## enable code to ensure that transparent faces are last in the list
+  // var vertex_count = vertices.length;
+  // var newFaces = tFaces.map(function(v) {
+  //   return [vertex_count+v[0], vertex_count+v[1], vertex_count+v[2], vertex_count+v[3], v[4]]
+  // })
+  // 
+  // return { vertices:vertices.concat(tVertices), faces:faces.concat(newFaces) };
+  
+  // TODO: Try sorting by texture to see if we can reduce draw calls.
+  // faces.sort(function sortFaces(a, b) {
+  //   return b[4] - a[4];
+  // })
+  return { vertices:vertices, faces:faces };
+}
+})();
+
+if(exports) {
+  exports.mesher = GreedyMesh;
+}
+
+},{}],52:[function(require,module,exports){
+module.exports=require(7)
+},{}],53:[function(require,module,exports){
+var createGame = require('voxel-engine');
+var createSnow = require('voxel-snow');
+var voxel = require('voxel');
+
+var game = createGame({
+	texturePath: 'textures/',
+	generate: voxel.generator['Valley']
+});
+game.appendTo('#container');
+
+var createPlayer = require('voxel-player')(game);
+var player = createPlayer('textures/substack.png');
+player.possess();	//set the player as the active camera view
+player.position.set(0, 20, 0);
+
+var snow = createSnow({
+	game: game,
+	count: 2000,
+	size: 20
+});
+
+game.on('tick', function() {
+	snow.tick();
+});
+
+window.addEventListener('keydown', function (ev) {
+	if (ev.keyCode === 'R'.charCodeAt(0)) {
+	    player.toggle();	// switch between 1st and 3rd person view
+	}
+});
+},{"voxel":46,"voxel-engine":1,"voxel-player":42,"voxel-snow":44}],54:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -48556,7 +46297,7 @@ function assert (test, message) {
   if (!test) throw new Error(message || 'Failed assertion')
 }
 
-},{"base64-js":64,"ieee754":65}],64:[function(require,module,exports){
+},{"base64-js":55,"ieee754":56}],55:[function(require,module,exports){
 var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 ;(function (exports) {
@@ -48678,7 +46419,7 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 	exports.fromByteArray = uint8ToBase64
 }(typeof exports === 'undefined' ? (this.base64js = {}) : exports))
 
-},{}],65:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 exports.read = function(buffer, offset, isLE, mLen, nBytes) {
   var e, m,
       eLen = nBytes * 8 - mLen - 1,
@@ -48764,7 +46505,7 @@ exports.write = function(buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128;
 };
 
-},{}],66:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -49069,7 +46810,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],67:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -49094,12 +46835,12 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],68:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],69:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -49327,7 +47068,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":70}],70:[function(require,module,exports){
+},{"_process":61}],61:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -49392,10 +47133,10 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],71:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 module.exports = require("./lib/_stream_duplex.js")
 
-},{"./lib/_stream_duplex.js":72}],72:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":63}],63:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -49488,7 +47229,7 @@ function forEach (xs, f) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_readable":74,"./_stream_writable":76,"_process":70,"core-util-is":77,"inherits":67}],73:[function(require,module,exports){
+},{"./_stream_readable":65,"./_stream_writable":67,"_process":61,"core-util-is":68,"inherits":58}],64:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -49536,7 +47277,7 @@ PassThrough.prototype._transform = function(chunk, encoding, cb) {
   cb(null, chunk);
 };
 
-},{"./_stream_transform":75,"core-util-is":77,"inherits":67}],74:[function(require,module,exports){
+},{"./_stream_transform":66,"core-util-is":68,"inherits":58}],65:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -50499,7 +48240,7 @@ function indexOf (xs, x) {
 }
 
 }).call(this,require('_process'))
-},{"_process":70,"buffer":63,"core-util-is":77,"events":66,"inherits":67,"isarray":68,"stream":83,"string_decoder/":78}],75:[function(require,module,exports){
+},{"_process":61,"buffer":54,"core-util-is":68,"events":57,"inherits":58,"isarray":59,"stream":74,"string_decoder/":69}],66:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -50711,7 +48452,7 @@ function done(stream, er) {
   return stream.push(null);
 }
 
-},{"./_stream_duplex":72,"core-util-is":77,"inherits":67}],76:[function(require,module,exports){
+},{"./_stream_duplex":63,"core-util-is":68,"inherits":58}],67:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -51102,7 +48843,7 @@ function endWritable(stream, state, cb) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_duplex":72,"_process":70,"buffer":63,"core-util-is":77,"inherits":67,"stream":83}],77:[function(require,module,exports){
+},{"./_stream_duplex":63,"_process":61,"buffer":54,"core-util-is":68,"inherits":58,"stream":74}],68:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -51212,7 +48953,7 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 }).call(this,require("buffer").Buffer)
-},{"buffer":63}],78:[function(require,module,exports){
+},{"buffer":54}],69:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -51414,10 +49155,10 @@ function base64DetectIncompleteChar(buffer) {
   return incomplete;
 }
 
-},{"buffer":63}],79:[function(require,module,exports){
+},{"buffer":54}],70:[function(require,module,exports){
 module.exports = require("./lib/_stream_passthrough.js")
 
-},{"./lib/_stream_passthrough.js":73}],80:[function(require,module,exports){
+},{"./lib/_stream_passthrough.js":64}],71:[function(require,module,exports){
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Readable = exports;
 exports.Writable = require('./lib/_stream_writable.js');
@@ -51425,13 +49166,13 @@ exports.Duplex = require('./lib/_stream_duplex.js');
 exports.Transform = require('./lib/_stream_transform.js');
 exports.PassThrough = require('./lib/_stream_passthrough.js');
 
-},{"./lib/_stream_duplex.js":72,"./lib/_stream_passthrough.js":73,"./lib/_stream_readable.js":74,"./lib/_stream_transform.js":75,"./lib/_stream_writable.js":76}],81:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":63,"./lib/_stream_passthrough.js":64,"./lib/_stream_readable.js":65,"./lib/_stream_transform.js":66,"./lib/_stream_writable.js":67}],72:[function(require,module,exports){
 module.exports = require("./lib/_stream_transform.js")
 
-},{"./lib/_stream_transform.js":75}],82:[function(require,module,exports){
+},{"./lib/_stream_transform.js":66}],73:[function(require,module,exports){
 module.exports = require("./lib/_stream_writable.js")
 
-},{"./lib/_stream_writable.js":76}],83:[function(require,module,exports){
+},{"./lib/_stream_writable.js":67}],74:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -51560,4 +49301,4 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":66,"inherits":67,"readable-stream/duplex.js":71,"readable-stream/passthrough.js":79,"readable-stream/readable.js":80,"readable-stream/transform.js":81,"readable-stream/writable.js":82}]},{},[1]);
+},{"events":57,"inherits":58,"readable-stream/duplex.js":62,"readable-stream/passthrough.js":70,"readable-stream/readable.js":71,"readable-stream/transform.js":72,"readable-stream/writable.js":73}]},{},[53]);
