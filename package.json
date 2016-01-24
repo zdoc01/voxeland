@@ -3,23 +3,28 @@
   "version": "0.2.0",
   "description": "Land of all the voxels.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zdoc01/voxeland.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "browserify ./src/index.js -o ./public/js/game.js"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "5.3.x"
   },
   "author": "Zachary Lumpkins",
   "license": "ISC",
+  "dependencies": {
+    "hapi": "^12.1.0",
+    "inert": "^3.2.0"
+  },
   "devDependencies": {
     "beefy": "^2.1.0",
-    "browserify": "^5.9.1",
-    "voxel": "^0.4.0",
+    "browserify": "^13.0.0",
+    "voxel": "^0.5.0",
     "voxel-engine": "^0.20.1",
     "voxel-player": "^0.1.0",
     "voxel-snow": "^0.2.0"
-  },
-  "dependencies": {
-    "hapi": "^6.4.0"
   }
 }
